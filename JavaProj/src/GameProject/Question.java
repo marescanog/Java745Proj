@@ -54,4 +54,25 @@ public class Question {
 	boolean validateQuestion(String playerChoice) {
 		return (playerChoice.toUpperCase()).equals(Character.toString(letterChoices[correctAnsIndex]));
 	}
+	
+	@Override
+	public String toString() {
+		String returnString = questionLine+"\n";
+		for(int x = 0; x < choices.length; x++) {
+			returnString += Question.letterChoices[x]+".) "+choices[x]+"\n";
+		}
+		return returnString;
+	}
+
+	// For life line 50/50
+	public String toString(int choiceA, int choiceB) {
+		String returnString = questionLine;
+		for(int x = 0; x < choices.length; x++) {
+			if(x == choiceA || x == choiceB) {
+				returnString += choices[x];
+			}
+		}
+		return returnString;
+	}
+	
 }
