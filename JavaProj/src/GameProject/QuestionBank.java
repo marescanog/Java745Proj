@@ -24,6 +24,7 @@ public class QuestionBank {
 			 new Question( "Who painted the Mona Lisa?",
 					 	"Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Michelangelo", 2, 1),
 			 
+			 
 			 new Question( "Which planet is the closest to Earth?",
 						"Mars", "Venus", "Mercury", "Jupiter", 1, 2),
 			 new Question( "What is the capital of Australia?",
@@ -44,87 +45,52 @@ public class QuestionBank {
 						"Yangtze River", "Nile River", "Amazon River", "Mississippi River", 1, 2 ),
 			 new Question( "What is the capital of Iceland?",
 						"Helsinki", "Oslo", "Reykjavik", "Copenhagen", 2, 2 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						3, 3
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						2, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						2, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						3, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						0, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//				
-//			 new Question( "",
-//					"", "", "", "",
-//					1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
+			 
+			 
+			 new Question( "Who wrote the novel \"Pride and Prejudice\"?",
+						"Mary Shelley", "Charlotte Brontë", " Emily Dickinson", "Jane Austen", 3, 3),
+			 new Question( "In which country can you find the ancient city of Machu Picchu?",
+						"Brazil", "Peru", "Chile", "Argentina",1, 3),
+			 new Question( "Who composed the Four Seasons?",
+						"Ludwig van Beethoven", "Antonio Vivaldi", "Wolfgang Amadeus Mozart", "Johann Sebastian Bach",1, 3),
+			 new Question( "What is the main language spoken in Brazil?",
+						"Portuguese", "Spanish", "English", "Brazillian",0, 3),
+			 new Question( "Who is the artist behind the painting \"The Starry Night\"?",
+						"Claude Monet", "Pablo Picasso", "Vincent van Gogh", "Salvador Dalí",2, 3),
+			 new Question( "In what year did the Titanic sink?",
+						"1905", "1923", "1931", "1912",3, 3),
+			 new Question( "Who was the first person to propose the concept of a heliocentric solar system?",
+						"Nicolaus Copernicus", "Galileo Galilei", "Johannes Kepler", "Isaac Newton",0, 3),
+			 new Question( "In which year did the Berlin Wall fall?",
+						"1987", "1989", "1991", "1994",1, 3),
+			 new Question( "Which scientist first discovered the circulation of blood in the human body?",
+						"William Harvey", "Isaac Newton", "Galileo Galilei", "Charles Darwin",0, 3),
+			 new Question( "What is the capital city of South Africa?",
+						"Johannesburg", "Pretoria", "Cape Town", "Durban",1, 3),
+			 
+				
+			 new Question( "Who wrote \"The Republic\", a philosophical text?",
+					"Aristotle", "Plato", "Socrates", "Euripides", 1, 4),
+			 new Question( "Which element has the atomic number 79?",
+						"Iron", "Silver", "Platinum", "Gold", 3, 4 ),
+			 new Question( "Who composed the music for the ballet \"Swan Lake\"?",
+						"Johann Sebastian Bach", "Pyotr Ilyich Tchaikovsky", "Ludwig van Beethoven", "Wolfgang Amadeus Mozart", 1, 4 ),
+			 new Question( "Which U.S. president appears on the $20 bill?",
+						"George Washington", "Abraham Lincoln", "Alexander Hamilton", "Andrew Jackson",3, 4),
+			 new Question( "In what year was the first iPhone released?",
+						"2005", "2009", "2007", "2011", 2, 4 ),
+			 new Question( "Which Shakespearean play features the characters of Goneril, Regan, and Cordelia?",
+						"King Lear", "Macbeth", "Hamlet", "Othello", 0, 4 ),
+			 new Question( "Which element is named after the creator of the periodic table?",
+						"Curium", "Einsteinium", "Mendelevium", "Bohrium", 2, 4),
+			 new Question( "What is the largest moon of Saturn?",
+						"Europa", "Ganymede", "Titan", "Callisto", 2, 4 ),
+			 new Question( "Which river flows through Paris?",
+						"Thames", "Danube", "Rhine", "Seine", 3, 4),
+			 new Question( "In which city was the first modern Olympic Games held?",
+						"Athens", "Paris", "London", "Rome", 0, 2 ),
+			 
+			 
 //			 new Question( "",
 //						"", "", "", "",
 //						1, 2
