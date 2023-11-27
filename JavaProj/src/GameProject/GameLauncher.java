@@ -25,32 +25,31 @@ public class GameLauncher {
 			
 			Question currentQuestion = quesDist.distributeQuestion(gamesetting.getQuestionCount() , difficulty);
 			
-			System.out.println(currentQuestion.toString());
-			
-			String choice = getValidChoiceLoop(sc);
-			
-			if(!choice.isBlank()) {
-				questionCorrect = currentQuestion.validateQuestion(choice);
+			if(currentQuestion == null) {
+				System.out.println("No more questions in bank.");
+				System.out.println("Returning to the Main Menu");
+				questionCorrect = false;
+			} else {
+				System.out.println(currentQuestion.getString());
 				
-				if(!questionCorrect) {
-					System.out.println("Incorrect Answer! You have Lost! Returning to the Main Menu\n\n");
-					//reset prize 
-					gamesetting.resetPrize();
-				} else {
-					//if correct
-					//add prize money
-					gamesetting.addPrize(gamesetting.getPrizeValues(difficulty)[gamesetting.getQuestionCount()-1]);
-					System.out.println("Correct Answer! Prize is currently: " + gamesetting.returnPrize() + "\n");
-					gamesetting.addQuestionCount(); //increment question count
+				String choice = getValidChoiceLoop(sc);
+				
+				if(!choice.isBlank()) {
+					questionCorrect = currentQuestion.validateQuestion(choice);
 					
-					if(gamesetting.getQuestionCount() > 3) { // modify later
-						System.out.println("3 Questions asked! Developer Please add more questions and functionality!");
-						System.out.println("Returning to the Main Menu");
-						questionCorrect = false;
+					if(!questionCorrect) {
+						System.out.println("Incorrect Answer! You have Lost! Returning to the Main Menu\n\n");
+						//reset prize 
+						gamesetting.resetPrize();
+					} else {
+						//if correct
+						//add prize money
+						gamesetting.addPrize(gamesetting.getPrizeValues(difficulty)[gamesetting.getQuestionCount()-1]);
+						System.out.println("Correct Answer! Prize is currently: " + gamesetting.returnPrize() + "\n");
+						gamesetting.addQuestionCount(); //increment question count
 					}
 				}
-			}
-			
+			}			
 		}
 		
 		quesDist.reset();
