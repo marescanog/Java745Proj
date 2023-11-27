@@ -7,12 +7,11 @@ public class GameSetting {
     private int difficulty;
     private static int question = 1;
     private static int round = 1;
-//    private int[] questionValuesEasy;
-//    private int[] questionValuesHard;
-    private boolean usedLifeLine = false;  
-  private static boolean isCorrect = false;
-//  feel like we might not need to track this
-    private int[] usedLifeLines;
+    private int[] questionValuesEasy = {100, 500, 1000, 8000, 16000, 32000, 125000, 500000, 1000000}; //9 values for Easy
+    private int[] questionValuesHard = {100, 200, 300, 500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 125000, 250000, 500000, 1000000}; //15 values for hard
+    private int[] usedLifeLines; //store lifelines that has been used, if empty: player never used lifeline
+    private double prizeMoney = 0;
+    
     
     public String getCurrentScreen() {
         return screen;
@@ -56,6 +55,14 @@ public class GameSetting {
     
     public void setCurrentRound(int num) {
     	this.round= num;
+    }
+    
+    public double returnPrize(){
+    	return prizeMoney;
+    }
+    
+    public void addPrize(int prize) {
+    	this.prizeMoney+= prize;
     }
     
 
