@@ -13,13 +13,15 @@ public class GameLauncher {
 
 		boolean questionCorrect = true; // replace with game settings
 		
-		//int questionCount = 1; // replace with game settings --> already intiliazed as 1
-		
 		// print round
 		System.out.println("Round Number " + "1"); // Game settings class
 		
 		while(questionCorrect) {
-			System.out.println("\n\nQuestion Number "+ gamesetting.getQuestionCount() + " with a prize amount of \n"); // Game settings class
+			
+			//0 for easy
+			//this will get the array for difficulty easy prize values and the use questionCount as index to access and progress
+			System.out.println("\n\nQuestion Number "+ gamesetting.getQuestionCount() + " with a prize amount of " + gamesetting.getPrizeValues(difficulty)[gamesetting.getQuestionCount()-1]+ "\n");
+		
 			
 			Question currentQuestion = quesDist.distributeQuestion(gamesetting.getQuestionCount() , difficulty);
 			
@@ -32,8 +34,14 @@ public class GameLauncher {
 				
 				if(!questionCorrect) {
 					System.out.println("Incorrect Answer! You have Lost! Returning to the Main Menu\n\n");
+					//reset prize 
+					gamesetting.resetPrize();
 				} else {
-					gamesetting.addQuestionCount();
+					//if correct
+					//add prize money
+					gamesetting.addPrize(gamesetting.getPrizeValues(difficulty)[gamesetting.getQuestionCount()-1]);
+					System.out.println("Correct Answer! Prize is currently: " + gamesetting.returnPrize() + "\n");
+					gamesetting.addQuestionCount(); //increment question count
 					
 					if(gamesetting.getQuestionCount() > 3) { // modify later
 						System.out.println("3 Questions asked! Developer Please add more questions and functionality!");
