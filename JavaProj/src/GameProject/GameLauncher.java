@@ -5,20 +5,23 @@ import java.util.Scanner;
 public class GameLauncher {
 	
 	private QuestionDistributor quesDist = new QuestionDistributor();
+	private GameSetting gamesetting = new GameSetting();
 	
 	GameLauncher(){}
 	
 	public void LaunchGameLoop(int difficulty, Scanner sc) {
+
 		boolean questionCorrect = true; // replace with game settings
-		int questionCount = 1; // replace with game settings
+		
+		//int questionCount = 1; // replace with game settings --> already intiliazed as 1
 		
 		// print round
 		System.out.println("Round Number " + "1"); // Game settings class
 		
 		while(questionCorrect) {
-			System.out.println("\n\nQuestion Number "+ questionCount + " with a prize amount of \n"); // Game settings class
+			System.out.println("\n\nQuestion Number "+ gamesetting.getQuestionCount() + " with a prize amount of \n"); // Game settings class
 			
-			Question currentQuestion = quesDist.distributeQuestion(questionCount, difficulty);
+			Question currentQuestion = quesDist.distributeQuestion(gamesetting.getQuestionCount() , difficulty);
 			
 			System.out.println(currentQuestion.toString());
 			
@@ -30,9 +33,9 @@ public class GameLauncher {
 				if(!questionCorrect) {
 					System.out.println("Incorrect Answer! You have Lost! Returning to the Main Menu\n\n");
 				} else {
-					questionCount++;
+					gamesetting.addQuestionCount();
 					
-					if(questionCount > 3) { // modify later
+					if(gamesetting.getQuestionCount() > 3) { // modify later
 						System.out.println("3 Questions asked! Developer Please add more questions and functionality!");
 						System.out.println("Returning to the Main Menu");
 						questionCorrect = false;
