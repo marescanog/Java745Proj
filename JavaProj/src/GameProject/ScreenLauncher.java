@@ -1,9 +1,12 @@
 package GameProject;
 
+
 import java.util.Scanner;
 
 public class ScreenLauncher {
 	private GameLauncher gameLauncher = new GameLauncher();
+	private GameSetting gamesetting = new GameSetting();
+
 	
 	ScreenLauncher(){}
 	
@@ -12,14 +15,15 @@ public class ScreenLauncher {
 		// Enter your name
 		
 		System.out.println("Please enter your name");
+		
 		// Replace with Game Settings Set Name
-		String name  = sc.nextLine();
+		gamesetting.setPlayerName(sc.nextLine());
 				
 		// Enter a difficulty choice
 		
-		int difficulty = difficultyLoopSelection(sc); // Replace with Game Settings Difficulty
+		gamesetting.setDifficulty(difficultyLoopSelection(sc)); // Replace with Game Settings Difficulty
 		
-		gameLauncher.LaunchGameLoop(difficulty, sc);
+		gameLauncher.LaunchGameLoop(gamesetting.getDifficulty(), sc);
 	}
 	
 	// Validation

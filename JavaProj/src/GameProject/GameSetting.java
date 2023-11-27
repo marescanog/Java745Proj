@@ -2,24 +2,24 @@ package GameProject;
 
 public class GameSetting {
 	
-	private String currentScreen;
+	private String screen;
     private String playerName;
-    private String difficulty;
-    private static int currentQuestion = 1;
-    private static int currentRound = 1;
-    private int[] questionValuesEasy;
-    private int[] questionValuesHard;
-    private boolean usedLifeLine = false;
-    private boolean isConfirmed = false;
-    private static boolean isCorrect = false;
+    private int difficulty;
+    private static int question = 1;
+    private static int round = 1;
+//    private int[] questionValuesEasy;
+//    private int[] questionValuesHard;
+    private boolean usedLifeLine = false;  
+  private static boolean isCorrect = false;
+//  feel like we might not need to track this
     private int[] usedLifeLines;
     
     public String getCurrentScreen() {
-        return currentScreen;
+        return screen;
     }
 
     public void setCurrentScreen(String screen) {
-        this.currentScreen = screen;
+        this.screen = screen;
     }
 
     public String getPlayerName() {
@@ -30,34 +30,34 @@ public class GameSetting {
         this.playerName = playerName;
     }
 
-    public String getDifficulty() {
+    public int getDifficulty() {
         return difficulty;
     }
 
-    public void setDifficulty(String difficulty) {
-        this.difficulty = difficulty;
+    public void setDifficulty(int choice) {
+    	this.difficulty = choice;
     }
-
-    public void promptAskPlayerName(String playerName) {
-        if (playerName != null && !playerName.trim().isEmpty()) {
-            setPlayerName(playerName);
-            System.out.println("Player name set as: " + playerName);
-        } else {
-            System.out.println("Invalid player name. Please provide a valid name.");
-        }
+    
+    public int getQuestionCount() {
+    	return question;
     }
-
-    public void promptDifficulty(String difficulty) {
-    	
-    	
-    	if (difficulty != null && !difficulty.isEmpty()) {
-    		  setDifficulty(difficulty);
-              System.out.println("Difficulty set as: " + difficulty);
-    	}else {
-            System.out.println("Invalid difficulty. Please choose a valid difficulty.");
-    	}
-      
+    
+    public void addQuestionCount() {
+    	this.question++;
     }
+    
+//    public void setCurrentQuestion(int num) {
+//    	this.question= num;
+//    }
+    
+    public int getCurrentRound() {
+    	return round;
+    }
+    
+    public void setCurrentRound(int num) {
+    	this.round= num;
+    }
+    
 
     public void retrieveStoredData() {
         // Implement logic to retrieve stored data
