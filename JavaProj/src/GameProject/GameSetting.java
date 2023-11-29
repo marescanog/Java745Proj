@@ -62,6 +62,10 @@ public class GameSetting {
     	this.questionCorrect = choice;
     }
     
+    public String[] getUsedLifeLines() {
+    	return this.usedLifeLines;
+    }
+    
     public int[] getPrizeValues(int difficulty) {
     	//if difficulty = 1 = hard then return hard prize values
         return (difficulty == 1) ? this.prizeValuesHard : this.prizeValuesEasy;

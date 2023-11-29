@@ -9,8 +9,8 @@ public class Lifeline {
 	
     public void runLifeline() {
     	Scanner s = new Scanner(System.in);
-		System.out.println("Select the type of Lifeline (you can only use each once!):");
-		System.out.println("A or a - 50/50--> This lifeline allows the game to eliminate two incorrect answers");
+		System.out.println("\nSelect the type of Lifeline (you can only use each once!):");
+		System.out.println("A or a - 50/50 --> This lifeline allows the game to eliminate two incorrect answers");
 		System.out.println("B or b - Ask the Audience--> This lifeline allows the player to “ask the audience”for the correct answer. Be creative with regards to how you implement this.");
 		System.out.println("C or c - Phone a friend --> This lifeline allows the player to “phone to afriend” for the correct answer. Be creative with regards to how you implement this");		
 		System.out.print("\nYour selection:");
@@ -19,7 +19,6 @@ public class Lifeline {
 		if (option == "a" || option == "A") {
 			//lifeline 50/50
 			lifeline5050.runLifeline();
-			
 			
 		}else if (option == "b" || option == "B") {
 			//ask audience
