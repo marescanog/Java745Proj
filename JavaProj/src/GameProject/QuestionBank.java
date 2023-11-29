@@ -91,46 +91,30 @@ public class QuestionBank {
 						"Athens", "Paris", "London", "Rome", 0, 2 ),
 			 
 			 
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
+			 new Question( "Which architect designed the Guggenheim Museum in Bilbao, Spain?",
+						"Frank Gehry", "Frank Lloyd Wright", "I.M. Pei", "Zaha Hadid",0, 5),
+			 new Question( "Who wrote the epic poem \"Paradise Lost\"?",
+						"William Shakespeare", "John Milton", "Geoffrey Chaucer", "John Donne",1, 5),
+			 new Question( "In what year did the Titanic sink?",
+						"1912", "1905", "1923", "1931",0, 5),
+			 new Question( "Which element has the highest melting point?",
+						"Iron", "Carbon", "Tungsten ", "Uranium", 2, 5),
+			 new Question( "In which country is the ancient city of Petra located?",
+						"Jordan", "Egypt", "Greece", "Iran", 0, 5),
+			 new Question( "Which philosopher coined the phrase \"I think, therefore I am\"?",
+						"Socrates", "Plato", "Aristotle", "René Descartes", 3, 5),
+			 new Question( "Who composed the \"Moonlight Sonata\"?",
+						"Wolfgang Amadeus Mozart", "Ludwig van Beethoven", "Johann Sebastian Bach", "Franz Schubert", 1, 5),
+			 new Question( "What is the study of fungi called?", 
+					 	"Botany", "Entomology", "Mycology", "Ecology", 2, 5 ),
+			 new Question( "Which author wrote \"Brave New World\"?",
+						"George Orwell", "Ray Bradbury", "H.G. Wells", "Aldous Huxley",3, 5),
+			 new Question( "The Battle of Hastings in 1066 was fought in which country?",
+						"France", "Germany", "England", "Spain", 2, 5),
+			 
+			 
+			 
+			 
 //			 new Question( "",
 //						"", "", "", "",
 //						1, 2
