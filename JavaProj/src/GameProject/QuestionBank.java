@@ -91,208 +91,126 @@ public class QuestionBank {
 						"Athens", "Paris", "London", "Rome", 0, 2 ),
 			 
 			 
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
+			 new Question( "Which architect designed the Guggenheim Museum in Bilbao, Spain?",
+						"Frank Gehry", "Frank Lloyd Wright", "I.M. Pei", "Zaha Hadid",0, 5),
+			 new Question( "Who wrote the epic poem \"Paradise Lost\"?",
+						"William Shakespeare", "John Milton", "Geoffrey Chaucer", "John Donne",1, 5),
+			 new Question( "In what year did the Titanic sink?",
+						"1912", "1905", "1923", "1931",0, 5),
+			 new Question( "Which element has the highest melting point?",
+						"Iron", "Carbon", "Tungsten ", "Uranium", 2, 5),
+			 new Question( "In which country is the ancient city of Petra located?",
+						"Jordan", "Egypt", "Greece", "Iran", 0, 5),
+			 new Question( "Which philosopher coined the phrase \"I think, therefore I am\"?",
+						"Socrates", "Plato", "Aristotle", "René Descartes", 3, 5),
+			 new Question( "Who composed the \"Moonlight Sonata\"?",
+						"Wolfgang Amadeus Mozart", "Ludwig van Beethoven", "Johann Sebastian Bach", "Franz Schubert", 1, 5),
+			 new Question( "What is the study of fungi called?", 
+					 	"Botany", "Entomology", "Mycology", "Ecology", 2, 5 ),
+			 new Question( "Which author wrote \"Brave New World\"?",
+						"George Orwell", "Ray Bradbury", "H.G. Wells", "Aldous Huxley",3, 5),
+			 new Question( "The Battle of Hastings in 1066 was fought in which country?",
+						"France", "Germany", "England", "Spain", 2, 5),
+			 
+			 
+			 
+			 
+			 new Question( "In music, which term indicates a tempo that is faster than \"allegro\"?",
+						"Andante", "Presto", "Lento", "Adagio",1, 6),
+			 new Question( "Who was the first female Prime Minister of the United Kingdom?",
+						"Theresa May", "Angela Merkel", "Margaret Thatcher", "Indira Gandhi",2, 6),
+			 new Question( "What is the largest internal organ in the human body?",
+						"Heart", "Brain", "Lung", "Liver",3, 6),
+			 new Question( "The novel \"Crime and Punishment\" was written by which author?",
+						"Leo Tolstoy", "Fyodor Dostoevsky ", "Anton Chekhov", "Vladimir Nabokov",1, 6),
+			 new Question( "Which painting was stolen from the Isabella Stewart Gardner Museum in the infamous 1990 art heist",
+						"The Storm on the Sea of Galilee", "The Mona Lisa", "Starry Night", "Girl with a Pearl Earring",0, 6),
+			 new Question( "What is the capital of Lithuania?",
+						"Vilnius", "Riga", "Tallinn", "Minsk",0, 6),
+			 new Question( "Which philosopher is famous for the quote \"Man is condemned to be free\"?",
+						"Friedrich Nietzsche", "Louis Pasteur", "Jean-Paul Sartre", "Gregor Mendel",2, 6),
+			 new Question( "Which scientist is credited with the discovery of penicillin?",
+						"Marie Curie", "Louis Pasteur", "Gregor Mendel", "Alexander Fleming",3, 6),
+			 new Question( "The ancient city of Carthage was located in the present-day territory of which country?",
+						"Tunisia", "Egypt", "Greece", "Italy",0, 6),
+			 new Question( "Who is considered the father of modern taxonomy?",
+						"Charles Darwin", "Gregor Mendel", "Carl Linnaeus", "Louis Pasteur",2, 6),
+				
+			 
+			 
+			 new Question( "The Battle of Waterloo in 1815 marked the defeat of which historical figure?",
+						"Julius Caesar", "Alexander the Great", "Genghis Khan", "Napoleon Bonaparte",3, 7),
+			 new Question( "Who was the Greek goddess of wisdom?",
+						"Athena", "Aphrodite", "Hera", "Artemis",0, 7),
+			 new Question( "What is the capital of Brazil?",
+						"Rio de Janeiro", "São Paulo", "Brasília", "Buenos Aires",2, 7),
+			 new Question( "Who composed the \"Brandenburg Concertos\"?",
+						"Ludwig van Beethoven", "Johann Sebastian Bach", "Wolfgang Amadeus Mozart", "Antonio Vivaldi",1, 7),
+			 new Question( "What is the capital of Mongolia?",
+						"Ulaanbaatar", "Astana", "Bishkek", "Kathmandu",0, 7),
+			 new Question( "Who wrote the symphony \"The Lark Ascending\"?",
+						"Edward Elgar", "Gustav Holst", "Ralph Vaughan Williams", "Benjamin Britten", 2, 7),
+			 new Question( "Who is the author of the book \"A Brief History of Time\"?",
+						"Stephen Hawking", "Carl Sagan", "Neil deGrasse Tyson", "Richard Feynman", 0, 7),
+			 new Question( "What year did the Berlin Wall fall?",
+						"1987", "1991", "1989", "1993", 2, 7),
+			 new Question( "Which artist is known for the sculpture \"The Thinker\"?",
+						"Michelangelo", "Rodin", "Donatello", "Bernini",1, 7),
+			 new Question( "Which country is the origin of the Merino breed of sheep, known for its wool?",
+						"New Zealand", "Scotland", "Ireland", "Australia",3, 7),
+			 
+			 
+			 
+			 
+			 new Question( "In which city was the Treaty of Versailles signed in 1919?",
+						"Berlin", "London", "Vienna", "Paris",3, 8),
+			 new Question( "In which year was the Nobel Prize in Literature first awarded?",
+						"1895", "1901", "1910", "1923",1, 8),
+			 new Question( "Who composed the opera \"Madama Butterfly\"?",
+						"Wolfgang Amadeus Mozart", "Giacomo Puccini", "Ludwig van Beethoven", "Giuseppe Verdi",1, 8),
+			 new Question( "The ruins of the ancient city of Persepolis are in which country?",
+						"Greece", "Egypt", "Iraq", "Iran",3, 8),
+			 new Question( "In art, what is the term used for a technique that creates the appearance of three dimensions on a flat surface?",
+						"Trompe-l'œil", "Cubism", "Impressionism", "Surrealism",0, 8),
+			 new Question( "Which philosopher wrote \"Critique of Pure Reason\"?",
+						"Friedrich Nietzsche", "Søren Kierkegaard", "Immanuel Kant", "David Hume",2, 8),
+			 new Question( "In which century was the first mechanical clock invented?",
+						"11th Century", "14th Century", "16th Century", "18th Century",1, 8),
+			 new Question( "Which king signed the Magna Carta in 1215?",
+						"King Henry VIII", "King Richard I", "King Edward I", "King John",3, 8),
+			 new Question( "The ancient Library of Alexandria was located in which country?",
+						"Egypt", "Greece", "Italy", "Turkey",0, 8),
+			 new Question( "The Hagia Sophia in Istanbul was originally built as what type of building?",
+						"Mosque", "Palace", "Cathedral", "Library",2, 8),
+			 
+			 
+			 
+			 
+			 new Question( "Which philosopher is known for the existential concept of \"The Absurd\"?",
+						"Jean-Paul Sartre", "Friedrich Nietzsche", "Søren Kierkegaard", "Albert Camus", 3, 9),
+			 new Question( "The Potala Palace, a UNESCO World Heritage Site, is located in which city?",
+						"Kathmandu", "Bhutan", "Lhasa", "Shigatse", 2, 9 ),
+			 new Question( "What is the heaviest naturally occurring element found on Earth?",
+						"Osmium", "Iridium", "Plutonium", "Uranium", 3, 9 ),
+			 new Question( "The Treaty of Tordesillas, signed in 1494, divided the newly discovered lands outside Europe between which two countries?",
+						"Spain and Portugal", "England and France", "Spain and France", "Portugal and England", 0, 9 ),
+			 new Question( "What is the name of the first spacecraft to land on a comet?",
+						"Voyager 1", "New Horizons", "Rosetta", "Cassini", 2, 9 ),
+			 new Question( "What is the capital of Burkina Faso?",
+						"Bamako", "Niamey", "N'Djamena", "Ouagadougou", 3, 9 ),
+			 new Question( "Which physicist developed the theory of color based on the observation of a prism?",
+						"Albert Einstein", "Isaac Newton", "Niels Bohr", "Max Planck", 1, 9 ),
+			 new Question( "Who wrote the existentialist work \"Being and Time\"?",
+						"Jean-Paul Sartre", "Martin Heidegger", "Friedrich Nietzsche", "Albert Camus", 1, 9 ),
+			 new Question( "In which year was the element Oganesson first synthesized?",
+						"2002", "2010", "2014", "2006", 3, 9 ),
+			 new Question( "The ancient city of Nineveh was located in the modern-day territory of which country?",
+						"Iraq", "Iran", "Egypt", "Syria", 0, 9),
 //				
-//			 new Question( "",
-//					"", "", "", "",
-//					1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//				
+			 
+			 
+			 
+			 
 //			 new Question( "",
 //					"", "", "", "",
 //					1, 2
