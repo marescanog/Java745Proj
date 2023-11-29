@@ -23,7 +23,7 @@ public class ScreenLauncher {
 		// Enter a difficulty choice
 		gamesetting.setDifficulty(difficultyLoopSelection(sc));
 		
-		gameLauncher.LaunchGameLoop(gamesetting.getDifficulty(), sc);
+		gameLauncher.LaunchGameLoop(sc);
 	}
 	
 	// Validation
