@@ -94,12 +94,16 @@ public class GameSetting {
 //    	this.prizeMoney = 0;
 //    }
     
-    public void addPrize(int prize) {
-    	this.prizeMoney+= prize;
+    public void setPrize(int prize) {
+    	this.prizeMoney= prize;
     }
     
     public void retrieveStoredData() {
         // Implement logic to retrieve stored data
+    }
+    
+    public Boolean canRunLifeline() {
+        return (difficulty == 0 ) || (difficulty == 1 && ((round == 2)|| (round == 3)));
     }
     
 }

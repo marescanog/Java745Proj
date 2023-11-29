@@ -20,24 +20,9 @@ public class GameLauncher {
 			
 			while(gamesetting.getQuestionCorrect()) {
 				
-				//check difficulty, if hard --> only available in round 2 and 3, if easy --> round 1
-				
-				if (gamesetting.getDifficulty() == 1) {
-					
-				}
-				
 				System.out.println("\n---GAME INFO---");	
-				// print round
-				System.out.println("The current round is: " + gamesetting.getCurrentRound()); // Game settings class
-				//logic: (int)Math.ceil((double)gamesetting.getQuestionCount()/3))
-				
-				//0 for easy
-				//this will get the array for difficulty easy prize values and the use questionCount as index to access and progress
-				System.out.println("Question Number "+ gamesetting.getQuestionCount() + " with a prize amount of $" + gamesetting.getPrizeValues(gamesetting.getDifficulty())[gamesetting.getQuestionCount()-1]+ "\n");
-			
 				
 				Question currentQuestion = quesDist.distributeQuestion(gamesetting.getQuestionCount() , gamesetting.getDifficulty());
-				
 				
 				//{
 				if(currentQuestion == null) {
@@ -48,14 +33,32 @@ public class GameLauncher {
 			        System.out.println("*           You have won the game!           *");
 			        System.out.println("*                                            *");
 			        System.out.println("**********************************************");
-					System.out.println("No more questions in bank.");
 					System.out.println("Returning to the Main Menu");
 					gamesetting.resetGame();
 					quesDist.reset();
 				} else {
 			
+					// print round
+					System.out.println("The current round is: " + gamesetting.getCurrentRound()); // Game settings class
+					//logic: (int)Math.ceil((double)gamesetting.getQuestionCount()/3))
+					
+					//0 -for easy, 1 - hard
+					//this will get the array for difficulty easy prize values and the use questionCount as index to access and progress
+					System.out.println("Question Number "+ gamesetting.getQuestionCount() + " with a prize amount of $" + gamesetting.getPrizeValues(gamesetting.getDifficulty())[gamesetting.getQuestionCount()-1]+ "\n");
+					
 					//printing question with choices
 					System.out.println(currentQuestion.getString());
+					
+					//check difficulty, if hard --> only available in round 2 and 3, if easy --> round 1
+					if (gamesetting.canRunLifeline()) {
+						System.out.println("Lifeline Available:");
+						System.out.println("1 - 50/50");
+						System.out.println("2 - Ask a friend");
+						System.out.println("3 - Ask Audience");
+					}
+					
+					
+					
 					
 					//check if lifelines are remaining, if 3 all lifelines consumed
 					if (gamesetting.getUsedLifeLines().length == 3) {
@@ -81,7 +84,7 @@ public class GameLauncher {
 							default:
 								System.out.println("That choice is invalid. Please select only Y or N");
 								choice="";
-						}
+					}
 						
 					}//lifeline closing bracket
 					
@@ -99,10 +102,13 @@ public class GameLauncher {
 				System.out.println("Incorrect Answer! You have Lost! Returning to the Main Menu\n\n");
 				gamesetting.resetGame();
 				quesDist.reset();
-			} else {
+				
+			// Add gaurd to make sure we wont run these statements if out-of-question bounds (9/easy, 15/hard)
+			} else if (gamesetting.getDifficulty() == 0 && gamesetting.getQuestionCount() <= 9
+					|| (gamesetting.getDifficulty() == 1 && gamesetting.getQuestionCount() <= 15)) {
 				//if correct
 				//add prize money
-				gamesetting.addPrize(gamesetting.getPrizeValues(gamesetting.getDifficulty())[gamesetting.getQuestionCount()-1]);
+				gamesetting.setPrize(gamesetting.getPrizeValues(gamesetting.getDifficulty())[gamesetting.getQuestionCount()-1]);
 				System.out.println("Correct Answer! Prize is currently: $" + gamesetting.returnPrize() + "\n");
 				gamesetting.addQuestionCount(); //increment question count
 				gamesetting.updateRound();
@@ -123,6 +129,8 @@ public class GameLauncher {
 			case "C":
 			case "D":
 			case "d":
+//			case "L":
+//			case "l":
 				break;
 			default:
 				System.out.println("That choice is invalid. Please select only A, B, C or D");
