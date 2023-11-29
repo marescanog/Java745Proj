@@ -38,6 +38,11 @@ public class QuestionDistributor {
 		 * 
 		 */
 		
+		// Do not distribute question when max questions asked is reached
+		if((gameDifficulty == 0 && currentQuestionNumber > 9) || (gameDifficulty == 1 && currentQuestionNumber > 15)) {
+			return null;
+		}
+		
 		filteredQuestions.clear();
 		
 		int minDifficultyRange = (currentQuestionNumber % 2 == 0 ? ((currentQuestionNumber / 2)) : ((currentQuestionNumber / 2) + 1));

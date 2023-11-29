@@ -186,47 +186,31 @@ public class QuestionBank {
 			 
 			 
 			 
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
+			 new Question( "Which philosopher is known for the existential concept of \"The Absurd\"?",
+						"Jean-Paul Sartre", "Friedrich Nietzsche", "Søren Kierkegaard", "Albert Camus", 3, 9),
+			 new Question( "The Potala Palace, a UNESCO World Heritage Site, is located in which city?",
+						"Kathmandu", "Bhutan", "Lhasa", "Shigatse", 2, 9 ),
+			 new Question( "What is the heaviest naturally occurring element found on Earth?",
+						"Osmium", "Iridium", "Plutonium", "Uranium", 3, 9 ),
+			 new Question( "The Treaty of Tordesillas, signed in 1494, divided the newly discovered lands outside Europe between which two countries?",
+						"Spain and Portugal", "England and France", "Spain and France", "Portugal and England", 0, 9 ),
+			 new Question( "What is the name of the first spacecraft to land on a comet?",
+						"Voyager 1", "New Horizons", "Rosetta", "Cassini", 2, 9 ),
+			 new Question( "What is the capital of Burkina Faso?",
+						"Bamako", "Niamey", "N'Djamena", "Ouagadougou", 3, 9 ),
+			 new Question( "Which physicist developed the theory of color based on the observation of a prism?",
+						"Albert Einstein", "Isaac Newton", "Niels Bohr", "Max Planck", 1, 9 ),
+			 new Question( "Who wrote the existentialist work \"Being and Time\"?",
+						"Jean-Paul Sartre", "Martin Heidegger", "Friedrich Nietzsche", "Albert Camus", 1, 9 ),
+			 new Question( "In which year was the element Oganesson first synthesized?",
+						"2002", "2010", "2014", "2006", 3, 9 ),
+			 new Question( "The ancient city of Nineveh was located in the modern-day territory of which country?",
+						"Iraq", "Iran", "Egypt", "Syria", 0, 9),
 //				
+			 
+			 
+			 
+			 
 //			 new Question( "",
 //					"", "", "", "",
 //					1, 2
