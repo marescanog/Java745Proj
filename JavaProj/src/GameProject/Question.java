@@ -55,6 +55,7 @@ public class Question {
 		return (playerChoice.toUpperCase()).equals(Character.toString(letterChoices[correctAnsIndex]));
 	}
 	
+	// For some reason the override is not working and prints the object instead
 	@Override
 	public String toString() {
 		String returnString = questionLine+"\n";
@@ -64,6 +65,14 @@ public class Question {
 		return returnString;
 	}
 
+	public String getString() {
+		String returnString = questionLine+"\n";
+		for(int x = 0; x < choices.length; x++) {
+			returnString += Question.letterChoices[x]+".) "+choices[x]+"\n";
+		}
+		return returnString;
+	}
+	
 	// For life line 50/50
 	public String toString(int choiceA, int choiceB) {
 		String returnString = questionLine;

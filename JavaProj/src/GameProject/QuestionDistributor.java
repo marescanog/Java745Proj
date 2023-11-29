@@ -34,7 +34,7 @@ public class QuestionDistributor {
 		 * 12: --						| 12: 8 , 9
 		 * 13: --						| 13: 9 , 9
 		 * 14: --						| 14: 9 , 10
-		 * 15: --						| 25: 10 , 10
+		 * 15: --						| 15: 10 , 10
 		 * 
 		 */
 		
@@ -48,28 +48,42 @@ public class QuestionDistributor {
 		
 		int randIndex = getRandomIndex();
 		
-		boolean hasBeenAsked = checkIfQuestionHasBeenAskedBefore(filteredQuestions.get(randIndex).getID());
-		
-		// Delete this later, to guard against infinite loops
-		int breaker = 0;
-		
-		while(hasBeenAsked && filteredQuestions.size() != 0 && breaker < 50) {
-			// Obtain a number between [0 to size()-1].
-			randIndex = getRandomIndex();
+		try {
 			
-			// check if question has been asked before
-			hasBeenAsked = checkIfQuestionHasBeenAskedBefore(filteredQuestions.get(randIndex).getID());
+			boolean hasBeenAsked = checkIfQuestionHasBeenAskedBefore(filteredQuestions.get(randIndex).getID());
 			
 			// Delete this later, to guard against infinite loops
-			breaker++;
-		}
+			int breaker = 0;
+			
+			while(hasBeenAsked && filteredQuestions.size() != 0 && breaker < 50) {
+				// Obtain a number between [0 to size()-1].
+				randIndex = getRandomIndex();
+				
+				// check if question has been asked before
+				hasBeenAsked = checkIfQuestionHasBeenAskedBefore(filteredQuestions.get(randIndex).getID());
+				
+				// Delete this later, to guard against infinite loops
+				breaker++;
+			}
 		
-		if(filteredQuestions.size() != 0){
-			doneQuestions.add(filteredQuestions.get(randIndex).getID());
-			return filteredQuestions.get(randIndex);
-		} else {
+		
+			if(filteredQuestions.size() != 0){
+				doneQuestions.add(filteredQuestions.get(randIndex).getID());
+				return filteredQuestions.get(randIndex);
+			} else {
+				return null;
+			}
+			
+		}catch(IndexOutOfBoundsException ex) {
+			System.out.println("minDifficultyRange "+minDifficultyRange);
+			System.out.println("maxDifficultyRange "+maxDifficultyRange);
+			System.out.println("totalQuestionsInList "+totalQuestionsInList);
+			System.out.println("randIndex "+randIndex);
+			System.out.println("Your Current Question Number is "+currentQuestionNumber);
+			System.out.println("This question number is out of the bounds of the bank of questions");
 			return null;
 		}
+
 		
 	}
 	

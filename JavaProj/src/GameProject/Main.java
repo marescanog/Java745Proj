@@ -35,7 +35,7 @@ public class Main {
 						gameRunning = false; // Replace with GameSettings.setGameRunning(false);
 						break;
 					default:
-						System.out.print("\n("+launchScreenOption+") is an inavlid option. ");
+						System.out.print("\n("+launchScreenOption+") is an invalid option. ");
 						launchScreenOption = "";
 				}
 				
