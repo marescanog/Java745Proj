@@ -138,48 +138,30 @@ public class QuestionBank {
 				
 			 
 			 
+			 new Question( "The Battle of Waterloo in 1815 marked the defeat of which historical figure?",
+						"Julius Caesar", "Alexander the Great", "Genghis Khan", "Napoleon Bonaparte",3, 7),
+			 new Question( "Who was the Greek goddess of wisdom?",
+						"Athena", "Aphrodite", "Hera", "Artemis",0, 7),
+			 new Question( "What is the capital of Brazil?",
+						"Rio de Janeiro", "São Paulo", "Brasília", "Buenos Aires",2, 7),
+			 new Question( "Who composed the \"Brandenburg Concertos\"?",
+						"Ludwig van Beethoven", "Johann Sebastian Bach", "Wolfgang Amadeus Mozart", "Antonio Vivaldi",1, 7),
+			 new Question( "What is the capital of Mongolia?",
+						"Ulaanbaatar", "Astana", "Bishkek", "Kathmandu",0, 7),
+			 new Question( "Who wrote the symphony \"The Lark Ascending\"?",
+						"Edward Elgar", "Gustav Holst", "Ralph Vaughan Williams", "Benjamin Britten", 2, 7),
+			 new Question( "Who is the author of the book \"A Brief History of Time\"?",
+						"Stephen Hawking", "Carl Sagan", "Neil deGrasse Tyson", "Richard Feynman", 0, 7),
+			 new Question( "What year did the Berlin Wall fall?",
+						"1987", "1991", "1989", "1993", 2, 7),
+			 new Question( "Which artist is known for the sculpture \"The Thinker\"?",
+						"Michelangelo", "Rodin", "Donatello", "Bernini",1, 7),
+			 new Question( "Which country is the origin of the Merino breed of sheep, known for its wool?",
+						"New Zealand", "Scotland", "Ireland", "Australia",3, 7),
 			 
 			 
-//			 new Question( "",
-//					"", "", "", "",
-//					1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
+			 
+			 
 //			 new Question( "",
 //						"", "", "", "",
 //						1, 2
