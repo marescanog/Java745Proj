@@ -14,12 +14,11 @@ public class ScreenLauncher {
 		System.out.println("\n\nGameLoop\n\n");
 		// Enter your name
 		
-		System.out.print("Please enter your name: ");
-		
-		// Replace with Game Settings Set Name
-		gamesetting.setPlayerName(sc.nextLine());
-		
-		System.out.println("Hello " + gamesetting.getPlayerName() + ", Welcome to the game!\n");
+		if (gamesetting.getPlayerName().equals("")) {
+		    System.out.print("Please enter your name: ");
+			gamesetting.setPlayerName(sc.nextLine());
+			System.out.println("Hello " + gamesetting.getPlayerName() + ", Welcome to the game!\n");
+		}
 				
 		// Enter a difficulty choice
 		gamesetting.setDifficulty(difficultyLoopSelection(sc));
