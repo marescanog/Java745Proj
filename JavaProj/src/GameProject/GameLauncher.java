@@ -78,6 +78,9 @@ public class GameLauncher {
 								String questionAnswer = getValidChoiceLoop(sc);
 								validateUserInput(currentQuestion, questionAnswer);
 								break;
+							default:
+								System.out.println("That choice is invalid. Please select only Y or N");
+								choice="";
 						}
 						
 					}//lifeline closing bracket
