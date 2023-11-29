@@ -11,49 +11,63 @@ public class GameLauncher {
 	
 	public void LaunchGameLoop(int difficulty, Scanner sc) {
 
-		boolean questionCorrect = true; // replace with game settings
 		
-		// print round
-		System.out.println("Round Number " + "1"); // Game settings class
+		gamesetting.setQuestionCorrect(true); // replace with game settings
 		
-		while(questionCorrect) {
-			
-			//0 for easy
-			//this will get the array for difficulty easy prize values and the use questionCount as index to access and progress
-			System.out.println("\n\nQuestion Number "+ gamesetting.getQuestionCount() + " with a prize amount of " + gamesetting.getPrizeValues(difficulty)[gamesetting.getQuestionCount()-1]+ "\n");
 		
+		//check difficulty
 			
-			Question currentQuestion = quesDist.distributeQuestion(gamesetting.getQuestionCount() , difficulty);
-			
-			if(currentQuestion == null) {
-				System.out.println("No more questions in bank.");
-				System.out.println("Returning to the Main Menu");
-				questionCorrect = false;
-			} else {
-				System.out.println(currentQuestion.getString());
+			while(gamesetting.getQuestionCorrect()) {
 				
-				String choice = getValidChoiceLoop(sc);
+				System.out.println("\n---GAME INFO---");	
+				// print round
+				System.out.println("The current round is: " + gamesetting.getCurrentRound()); // Game settings class
+//				//logic: (int)Math.ceil((double)gamesetting.getQuestionCount()/3))
 				
-				if(!choice.isBlank()) {
-					questionCorrect = currentQuestion.validateQuestion(choice);
+				//0 for easy
+				//this will get the array for difficulty easy prize values and the use questionCount as index to access and progress
+				System.out.println("Question Number "+ gamesetting.getQuestionCount() + " with a prize amount of $" + gamesetting.getPrizeValues(difficulty)[gamesetting.getQuestionCount()-1]+ "\n");
+			
+				
+				Question currentQuestion = quesDist.distributeQuestion(gamesetting.getQuestionCount() , difficulty);
+				
+				if(currentQuestion == null) {
+					//done with the game
+					System.out.println("**********************************************");
+			        System.out.println("*                                            *");
+			        System.out.println("*          Congratulations!                  *");
+			        System.out.println("*           You have won the game!           *");
+			        System.out.println("*                                            *");
+			        System.out.println("**********************************************");
+					System.out.println("No more questions in bank.");
+					System.out.println("Returning to the Main Menu");
+					gamesetting.resetGame();
+					quesDist.reset();
+				} else {
+			
+					System.out.println(currentQuestion.getString());
 					
-					if(!questionCorrect) {
-						System.out.println("Incorrect Answer! You have Lost! Returning to the Main Menu\n\n");
-						//reset prize 
-						gamesetting.resetPrize();
-					} else {
-						//if correct
-						//add prize money
-						gamesetting.addPrize(gamesetting.getPrizeValues(difficulty)[gamesetting.getQuestionCount()-1]);
-						System.out.println("Correct Answer! Prize is currently: " + gamesetting.returnPrize() + "\n");
-						gamesetting.addQuestionCount(); //increment question count
+					String choice = getValidChoiceLoop(sc);
+					
+					if(!choice.isBlank()) {
+						gamesetting.setQuestionCorrect(currentQuestion.validateQuestion(choice));
+						
+						if(!gamesetting.getQuestionCorrect()) {
+							//incorrect
+							System.out.println("Incorrect Answer! You have Lost! Returning to the Main Menu\n\n");
+							gamesetting.resetGame();
+							quesDist.reset();
+						} else {
+							//if correct
+							//add prize money
+							gamesetting.addPrize(gamesetting.getPrizeValues(difficulty)[gamesetting.getQuestionCount()-1]);
+							System.out.println("Correct Answer! Prize is currently: $" + gamesetting.returnPrize() + "\n");
+							gamesetting.addQuestionCount(); //increment question count
+							gamesetting.updateRound();
+						}
 					}
-				}
-			}			
-		}
-		
-		quesDist.reset();
-		
+				}			
+			}
 	}
 	
 	private String getValidChoiceLoop(Scanner sc) {
