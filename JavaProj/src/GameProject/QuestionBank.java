@@ -115,47 +115,31 @@ public class QuestionBank {
 			 
 			 
 			 
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//				
+			 new Question( "In music, which term indicates a tempo that is faster than \"allegro\"?",
+						"Andante", "Presto", "Lento", "Adagio",1, 6),
+			 new Question( "Who was the first female Prime Minister of the United Kingdom?",
+						"Theresa May", "Angela Merkel", "Margaret Thatcher", "Indira Gandhi",2, 6),
+			 new Question( "What is the largest internal organ in the human body?",
+						"Heart", "Brain", "Lung", "Liver",3, 6),
+			 new Question( "The novel \"Crime and Punishment\" was written by which author?",
+						"Leo Tolstoy", "Fyodor Dostoevsky ", "Anton Chekhov", "Vladimir Nabokov",1, 6),
+			 new Question( "Which painting was stolen from the Isabella Stewart Gardner Museum in the infamous 1990 art heist",
+						"The Storm on the Sea of Galilee", "The Mona Lisa", "Starry Night", "Girl with a Pearl Earring",0, 6),
+			 new Question( "What is the capital of Lithuania?",
+						"Vilnius", "Riga", "Tallinn", "Minsk",0, 6),
+			 new Question( "Which philosopher is famous for the quote \"Man is condemned to be free\"?",
+						"Friedrich Nietzsche", "Louis Pasteur", "Jean-Paul Sartre", "Gregor Mendel",2, 6),
+			 new Question( "Which scientist is credited with the discovery of penicillin?",
+						"Marie Curie", "Louis Pasteur", "Gregor Mendel", "Alexander Fleming",3, 6),
+			 new Question( "The ancient city of Carthage was located in the present-day territory of which country?",
+						"Tunisia", "Egypt", "Greece", "Italy",0, 6),
+			 new Question( "Who is considered the father of modern taxonomy?",
+						"Charles Darwin", "Gregor Mendel", "Carl Linnaeus", "Louis Pasteur",2, 6),
+				
+			 
+			 
+			 
+			 
 //			 new Question( "",
 //					"", "", "", "",
 //					1, 2
