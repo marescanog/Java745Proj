@@ -10,8 +10,9 @@ public class GameSetting {
     private boolean questionCorrect = false;
     private int[] prizeValuesEasy = {100, 500, 1000, 8000, 16000, 32000, 125000, 500000, 1000000}; //9 values for Easy
     private int[] prizeValuesHard = {100, 200, 300, 500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 125000, 250000, 500000, 1000000}; //15 values for hard
-    private String[] usedLifeLines; //store lifelines that has been used, if empty: player never used lifeline
+    private String[] usedLifeLines = new String[0]; //store lifelines that has been used, if empty: player never used lifeline
     private int prizeMoney = 0;
+    //gamesetting.setPrizeMoney(prizeValuessEasy[gamesetting.getQuestionCount()-1]);
     
     
     public String getCurrentScreen() {
