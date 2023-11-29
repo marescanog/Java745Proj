@@ -162,46 +162,30 @@ public class QuestionBank {
 			 
 			 
 			 
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
-//			 new Question( "",
-//						"", "", "", "",
-//						1, 2
-//			 ),
+			 new Question( "In which city was the Treaty of Versailles signed in 1919?",
+						"Berlin", "London", "Vienna", "Paris",3, 8),
+			 new Question( "In which year was the Nobel Prize in Literature first awarded?",
+						"1895", "1901", "1910", "1923",1, 8),
+			 new Question( "Who composed the opera \"Madama Butterfly\"?",
+						"Wolfgang Amadeus Mozart", "Giacomo Puccini", "Ludwig van Beethoven", "Giuseppe Verdi",1, 8),
+			 new Question( "The ruins of the ancient city of Persepolis are in which country?",
+						"Greece", "Egypt", "Iraq", "Iran",3, 8),
+			 new Question( "In art, what is the term used for a technique that creates the appearance of three dimensions on a flat surface?",
+						"Trompe-l'œil", "Cubism", "Impressionism", "Surrealism",0, 8),
+			 new Question( "Which philosopher wrote \"Critique of Pure Reason\"?",
+						"Friedrich Nietzsche", "Søren Kierkegaard", "Immanuel Kant", "David Hume",2, 8),
+			 new Question( "In which century was the first mechanical clock invented?",
+						"11th Century", "14th Century", "16th Century", "18th Century",1, 8),
+			 new Question( "Which king signed the Magna Carta in 1215?",
+						"King Henry VIII", "King Richard I", "King Edward I", "King John",3, 8),
+			 new Question( "The ancient Library of Alexandria was located in which country?",
+						"Egypt", "Greece", "Italy", "Turkey",0, 8),
+			 new Question( "The Hagia Sophia in Istanbul was originally built as what type of building?",
+						"Mosque", "Palace", "Cathedral", "Library",2, 8),
+			 
+			 
+			 
+			 
 //			 new Question( "",
 //						"", "", "", "",
 //						1, 2
