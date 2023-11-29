@@ -55,7 +55,7 @@ public class Question {
 		return (playerChoice.toUpperCase()).equals(Character.toString(letterChoices[correctAnsIndex]));
 	}
 	
-	// For some reason the ovveride is not working and prints the object instead
+	// For some reason the override is not working and prints the object instead
 	@Override
 	public String toString() {
 		String returnString = questionLine+"\n";

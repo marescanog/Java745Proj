@@ -14,14 +14,15 @@ public class ScreenLauncher {
 		System.out.println("\n\nGameLoop\n\n");
 		// Enter your name
 		
-		System.out.println("Please enter your name");
+		System.out.print("Please enter your name: ");
 		
 		// Replace with Game Settings Set Name
 		gamesetting.setPlayerName(sc.nextLine());
+		
+		System.out.println("Hello " + gamesetting.getPlayerName() + ", Welcome to the game!\n");
 				
 		// Enter a difficulty choice
-		
-		gamesetting.setDifficulty(difficultyLoopSelection(sc)); // Replace with Game Settings Difficulty
+		gamesetting.setDifficulty(difficultyLoopSelection(sc));
 		
 		gameLauncher.LaunchGameLoop(gamesetting.getDifficulty(), sc);
 	}
@@ -33,7 +34,7 @@ public class ScreenLauncher {
 		while(retVal < 0 && choice.isEmpty()) {
 			System.out.println("Please select a difficulty");
 			System.out.println("E - Easy, H - Hard");
-			System.out.print("Your difficulty:");
+			System.out.print("Your difficulty: ");
 			choice = sc.nextLine();
 			switch(choice) {
 				case "e":
@@ -66,7 +67,7 @@ public class ScreenLauncher {
 		System.out.println("I or i - Instructions");
 		System.out.println("X or x - exit");
 		
-		System.out.print("\nYour selection:");
+		System.out.print("\nYour selection: ");
 	}
 	
 }
