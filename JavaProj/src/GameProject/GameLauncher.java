@@ -36,7 +36,6 @@ public class GameLauncher {
 				System.out.println("Returning to the Main Menu");
 				reset();
 			} else {
-				System.out.println("The Difficulty is: " +gamesetting.getDifficulty());
 				// print round
 				System.out.println("The current round is: " + gamesetting.getCurrentRound()); // Game settings class
 				//logic: (int)Math.ceil((double)gamesetting.getQuestionCount()/3))
@@ -64,8 +63,8 @@ public class GameLauncher {
 	}
 	
 	private void givePlayerOptionToWalkaway (Scanner sc) {
-		if( (gamesetting.getDifficulty()==0 && (gamesetting.getQuestionCount()-1)%3 == 0) || 
-		    (gamesetting.getDifficulty()==1 && (gamesetting.getQuestionCount()-1)%5 == 0)) {
+		if( (GameSetting.getDifficulty()==0 && (gamesetting.getQuestionCount()-1)%3 == 0) || 
+		    (GameSetting.getDifficulty()==1 && (gamesetting.getQuestionCount()-1)%5 == 0)) {
 			
 			String walkawaychoice = "";
 			
@@ -107,15 +106,15 @@ public class GameLauncher {
 		
 		if(!gamesetting.getQuestionCorrect()) {
 			//incorrect
-			System.out.println("Incorrect Answer! You have Lost! Returning to the Main Menu\n\n");
+			System.out.println("\n\nIncorrect Answer! You have Lost! Returning to the Main Menu\n\n");
 			reset();
 			
 		// Add guard to make sure we wont run these statements if out-of-question bounds (9/easy, 15/hard)
-		} else if (gamesetting.getDifficulty() == 0 && gamesetting.getQuestionCount() <= 9
-				|| (gamesetting.getDifficulty() == 1 && gamesetting.getQuestionCount() <= 15)) {
+		} else if (GameSetting.getDifficulty() == 0 && gamesetting.getQuestionCount() <= 9
+				|| (GameSetting.getDifficulty() == 1 && gamesetting.getQuestionCount() <= 15)) {
 			//Set current Prize Money Amount according to question
-			gamesetting.setPrize(gamesetting.getPrizeValues(gamesetting.getDifficulty())[gamesetting.getQuestionCount()-1]);
-			System.out.println("Correct Answer! Prize is currently: $" + gamesetting.returnPrize() + "\n");
+			gamesetting.setPrize(gamesetting.getPrizeValues(GameSetting.getDifficulty())[gamesetting.getQuestionCount()-1]);
+			System.out.println("\n\nCorrect Answer! Prize is currently: $" + gamesetting.returnPrize() + "\n");
 			gamesetting.addQuestionCount(); //increment question count
 			gamesetting.updateRound();
 		}		
