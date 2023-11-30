@@ -8,118 +8,153 @@ public class GameLauncher {
 	private GameSetting gamesetting = new GameSetting();
 	private Lifeline lifeline = new Lifeline();
 	
+	private Question currentQuestion = null;
+	String questionAnswer = "";
+	
 	GameLauncher(){}
 	
 	public void LaunchGameLoop(Scanner sc) {
 
-		
-		gamesetting.setQuestionCorrect(true); // replace with game settings
-		
-		
-		//check difficulty
+		gamesetting.setQuestionCorrect(true); // Initialize to true at start of game
 			
-			while(gamesetting.getQuestionCorrect()) {
-				
-				System.out.println("\n---GAME INFO---");	
-				
-				Question currentQuestion = quesDist.distributeQuestion(gamesetting.getQuestionCount() , gamesetting.getDifficulty());
-				
-				//{
-				if(currentQuestion == null) {
-					//done with the game
-					System.out.println("**********************************************");
-			        System.out.println("*                                            *");
-			        System.out.println("*          Congratulations!                  *");
-			        System.out.println("*           You have won the game!           *");
-			        System.out.println("*                                            *");
-			        System.out.println("**********************************************");
-					System.out.println("Returning to the Main Menu");
-					gamesetting.resetGame();
-					quesDist.reset();
-				} else {
+		while(gamesetting.getQuestionCorrect()) {
 			
-					// print round
-					System.out.println("The current round is: " + gamesetting.getCurrentRound()); // Game settings class
-					//logic: (int)Math.ceil((double)gamesetting.getQuestionCount()/3))
-					
-					//0 -for easy, 1 - hard
-					//this will get the array for difficulty easy prize values and the use questionCount as index to access and progress
-					System.out.println("Question Number "+ gamesetting.getQuestionCount() + " with a prize amount of $" + gamesetting.getPrizeValues(gamesetting.getDifficulty())[gamesetting.getQuestionCount()-1]+ "\n");
-					
-					//printing question with choices
-					System.out.println(currentQuestion.getString());
-					
-					//check difficulty, if hard --> only available in round 2 and 3, if easy --> round 1
-					if (gamesetting.canRunLifeline()) {
-						System.out.println("Lifeline Available:");
-						System.out.println("1 - 50/50");
-						System.out.println("2 - Ask a friend");
-						System.out.println("3 - Ask Audience");
-					}
-					
-					
-					
-					
-					//check if lifelines are remaining, if 3 all lifelines consumed
-					if (gamesetting.getUsedLifeLines().length == 3) {
-						//proceed, no lifelines left
-						String questionAnswer = getValidChoiceLoop(sc);
-						validateUserInput(currentQuestion, questionAnswer);
-					}else {
-						//still lifelines left
-						System.out.println("You still have lifelines left, would you like to use a lifeline?(enter y or n)");
-						String choice = sc.nextLine();
-						switch(choice) {
-							case "y":
-							case "Y":
-								//call lifeline
-								lifeline.runLifeline();
-								break;
-							case "N":
-							case "n":
-								//proceed with the game
-								String questionAnswer = getValidChoiceLoop(sc);
-								validateUserInput(currentQuestion, questionAnswer);
-								break;
-							default:
-								System.out.println("That choice is invalid. Please select only Y or N");
-								choice="";
-					}
-						
-					}//lifeline closing bracket
-					
-				}//if currentQustion!= null			
-			}
+			System.out.println("\n---GAME INFO---");	
+			
+			// This ensures that we still have 
+			currentQuestion = quesDist.distributeQuestion(gamesetting.getQuestionCount() , gamesetting.getDifficulty());
+			
+			//{
+			if(currentQuestion == null) {
+				//done with the game
+				System.out.println("**********************************************");
+		        System.out.println("*                                            *");
+		        System.out.println("*          Congratulations!                  *");
+		        System.out.println("*           You have won the game!           *");
+		        System.out.println("*                                            *");
+		        System.out.println("**********************************************");
+				System.out.println("Returning to the Main Menu");
+				reset();
+			} else {
+				System.out.println("The Difficulty is: " +gamesetting.getDifficulty());
+				// print round
+				System.out.println("The current round is: " + gamesetting.getCurrentRound()); // Game settings class
+				//logic: (int)Math.ceil((double)gamesetting.getQuestionCount()/3))
+				
+				//0 -for easy, 1 - hard
+				//this will get the array for difficulty easy prize values and the use questionCount as index to access and progress
+				System.out.println("Question Number "+ gamesetting.getQuestionCount() + " with a prize amount of $" + gamesetting.getPrizeValues(gamesetting.getDifficulty())[gamesetting.getQuestionCount()-1]+ "\n");				
+				
+				// Loops until we get a valid choice from player
+				getValidChoiceLoop(sc);
+				
+				// Once we have a valid choice, we validate the user input to check
+				// if choice was the correct answer
+				checkPlayerAnswer(currentQuestion, questionAnswer);
+				
+				if(gamesetting.getQuestionCorrect()) { // guard to make sure this function only runs if player question correct
+					// Check if end of round and ask player if they would like to walk away
+					// After 3 questions - Easy, After 5 questions - hard,
+					givePlayerOptionToWalkaway(sc);
+				}
+
+				
+			}//if currentQustion!= null			
+		}
 	}
 	
-	private void validateUserInput(Question currentQuestion, String questionAnswer) {
-		
-		if(!questionAnswer.isBlank()) {
-			gamesetting.setQuestionCorrect(currentQuestion.validateQuestion(questionAnswer));
+	private void givePlayerOptionToWalkaway (Scanner sc) {
+		if( (gamesetting.getDifficulty()==0 && (gamesetting.getQuestionCount()-1)%3 == 0) || 
+		    (gamesetting.getDifficulty()==1 && (gamesetting.getQuestionCount()-1)%5 == 0)) {
 			
-			if(!gamesetting.getQuestionCorrect()) {
-				//incorrect
-				System.out.println("Incorrect Answer! You have Lost! Returning to the Main Menu\n\n");
-				gamesetting.resetGame();
-				quesDist.reset();
+			String walkawaychoice = "";
+			
+			while(walkawaychoice.isEmpty() || walkawaychoice.isBlank()) {
+				System.out.println("\n It is the end of the round!");
+				System.out.println("You can choose to walkwaway and keep your prize money worth $" + gamesetting.returnPrize());
+				System.out.println("Or you can choose to continue!");
+				System.out.print("Enter C to Cotinue or X to Walkaway:");
 				
-			// Add gaurd to make sure we wont run these statements if out-of-question bounds (9/easy, 15/hard)
-			} else if (gamesetting.getDifficulty() == 0 && gamesetting.getQuestionCount() <= 9
-					|| (gamesetting.getDifficulty() == 1 && gamesetting.getQuestionCount() <= 15)) {
-				//if correct
-				//add prize money
-				gamesetting.setPrize(gamesetting.getPrizeValues(gamesetting.getDifficulty())[gamesetting.getQuestionCount()-1]);
-				System.out.println("Correct Answer! Prize is currently: $" + gamesetting.returnPrize() + "\n");
-				gamesetting.addQuestionCount(); //increment question count
-				gamesetting.updateRound();
+				walkawaychoice = sc.nextLine();
+				
+				switch(walkawaychoice) {
+					case "C":
+					case "c":
+						System.out.println("You chose to continue! Moving to next round!");
+						break;
+					case "X":
+					case "x":
+						System.out.println("**********************************************");
+				        System.out.println("*                                            *");
+				        System.out.println("*          You chose to walkaway!            *");
+				        System.out.println("*                                            *");
+				        System.out.println("**********************************************");
+						System.out.println("\n\nYou get to keep your prize of $"+gamesetting.returnPrize()+"\n\n");
+						System.out.println("Returning to the Main Menu");
+						reset();
+						reset();
+						break;
+					default:
+						walkawaychoice = "";
+				}
 			}
 		}
-		
 	}
 	
-	private String getValidChoiceLoop(Scanner sc) {
-		System.out.println("\n\nPlease enter the letter of your choice (A, B, C, D):");
+	private void checkPlayerAnswer(Question currentQuestion, String questionAnswer) {
+		
+		gamesetting.setQuestionCorrect(currentQuestion.validateQuestion(questionAnswer));
+		
+		if(!gamesetting.getQuestionCorrect()) {
+			//incorrect
+			System.out.println("Incorrect Answer! You have Lost! Returning to the Main Menu\n\n");
+			reset();
+			
+		// Add guard to make sure we wont run these statements if out-of-question bounds (9/easy, 15/hard)
+		} else if (gamesetting.getDifficulty() == 0 && gamesetting.getQuestionCount() <= 9
+				|| (gamesetting.getDifficulty() == 1 && gamesetting.getQuestionCount() <= 15)) {
+			//Set current Prize Money Amount according to question
+			gamesetting.setPrize(gamesetting.getPrizeValues(gamesetting.getDifficulty())[gamesetting.getQuestionCount()-1]);
+			System.out.println("Correct Answer! Prize is currently: $" + gamesetting.returnPrize() + "\n");
+			gamesetting.addQuestionCount(); //increment question count
+			gamesetting.updateRound();
+		}		
+	}
+	
+	private void getValidChoiceLoop(Scanner sc) {
+		do {
+			//printing question with choices
+			System.out.println(currentQuestion.getString());
+			questionAnswer = getPlayerChoice(sc);
+			// Check if input is for life line
+			if(questionAnswer.equals("L") || questionAnswer.equals("l")) {
+				// Check if we can run life line
+				if(gamesetting.canRunLifeline()) {
+					// Check if life lines are still remaining
+					if(gamesetting.getUsedLifeLines().length == 3) {
+						System.out.println("That choice is invalid. You have no more lifelines. Please select only A, B, C or D");
+						questionAnswer = "";
+					} else {
+						lifeline.runLifeline();
+						questionAnswer = "";
+					}
+				} else {
+					System.out.println("That choice is invalid. Please select only A, B, C or D");
+					questionAnswer = "";
+				}
+			} 
+		} while(questionAnswer.isEmpty() || questionAnswer.isBlank());
+		// Since get player choice returns an empty string, this is not a valid choice and must continue to loop
+	}
+	
+	private String getPlayerChoice(Scanner sc) {
+		System.out.println("\n\n");
+		if(gamesetting.canRunLifeline()) {
+			System.out.println("Press (L) to Use lifeline ("+(3-gamesetting.getUsedLifeLines().length)+"/3) Remaining");
+		}
+		System.out.println("Please enter the letter of your choice (A, B, C, D):");
 		String choice = sc.nextLine();
+		
 		switch(choice) {
 			case "a":
 			case "A":
@@ -129,8 +164,8 @@ public class GameLauncher {
 			case "C":
 			case "D":
 			case "d":
-//			case "L":
-//			case "l":
+			case "L":
+			case "l":				
 				break;
 			default:
 				System.out.println("That choice is invalid. Please select only A, B, C or D");
@@ -140,5 +175,11 @@ public class GameLauncher {
 		return choice;
 	}
 	
+	private void reset() {
+		currentQuestion = null;
+		questionAnswer = "";
+		gamesetting.resetGame();
+		quesDist.reset();
+	}
 	
 }
