@@ -4,7 +4,7 @@ public class GameSetting {
 	
 	private String screen=""; //[Menu, Instructions, Game]
     private String playerName="";
-    private int difficulty; //0 for easy 1 for hard
+    private static int difficulty = 0; //0 for easy 1 for hard
     private int question = 1;
     private int round = 1;
     private boolean questionCorrect = false;
@@ -31,12 +31,12 @@ public class GameSetting {
         this.playerName = playerName;
     }
 
-    public int getDifficulty() {
+    public static int getDifficulty() {
         return difficulty;
     }
 
-    public void setDifficulty(int choice) {
-    	this.difficulty = choice;
+    public static void setDifficulty(int choice) {
+    	difficulty = choice;
     }
     
     public int getQuestionCount() {
