@@ -1,5 +1,7 @@
 package GameProject;
 
+import java.util.ArrayList;
+
 public class GameSetting {
 	
 	private String screen=""; //[Menu, Instructions, Game]
@@ -10,7 +12,7 @@ public class GameSetting {
     private boolean questionCorrect = false;
     private int[] prizeValuesEasy = {100, 500, 1000, 8000, 16000, 32000, 125000, 500000, 1000000}; //9 values for Easy
     private int[] prizeValuesHard = {100, 200, 300, 500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 125000, 250000, 500000, 1000000}; //15 values for hard
-    private String[] usedLifeLines = new String[0]; //store lifelines that has been used, if empty: player never used lifeline
+    private static ArrayList<String> usedLifeLines = new ArrayList<String>(); //store lifelines that has been used, if empty: player never used lifeline
     private int prizeMoney = 0;
     //gamesetting.setPrizeMoney(prizeValuessEasy[gamesetting.getQuestionCount()-1]);
     
@@ -63,8 +65,25 @@ public class GameSetting {
     	this.questionCorrect = choice;
     }
     
-    public String[] getUsedLifeLines() {
-    	return this.usedLifeLines;
+    public static int getUsedLifeLinesCount() {
+    	return usedLifeLines.size();
+    }
+    
+    public static ArrayList<String> getUsedLifeLines() {
+    	return usedLifeLines;
+    }
+    
+    public static void addLifeline(String lifeline) {
+    	if(!Lifeline.checkIsLifeLineInArrayList(usedLifeLines, lifeline) // If lifeline is not in array list
+    		&& Lifeline.checkIsLifeLineValid(lifeline)) {				// and if lifeline is one of the defined lifeline strings
+        	usedLifeLines.add(lifeline);								// add the lifeline to the arraylist
+    	} else {
+    		System.out.println("You already used this lifeline.");
+    	}
+    }
+    
+    public static void resetLifelines() {
+    	usedLifeLines.clear();
     }
     
     public int[] getPrizeValues(int difficulty) {
