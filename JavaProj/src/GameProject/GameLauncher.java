@@ -72,28 +72,33 @@ public class GameLauncher {
 			String walkawaychoice = "";
 			
 			while(walkawaychoice.isEmpty() || walkawaychoice.isBlank()) {
-				System.out.println("\n It is the end of the round!");
-				System.out.println("You can choose to walkwaway and keep your prize money worth $" + gamesetting.returnPrize());
-				System.out.println("Or you can choose to continue!");
-				System.out.print("Enter C to Cotinue or X to Walkaway:");
+				System.out.println("\n\n ==========================================================");
+				System.out.println(" =               It is the end of the round!              =");
+				System.out.println(" ==========================================================");
+				System.out.println("\n              You have the option to walk away ");
+				System.out.println(" If you walk away you get to keep your current prize worth:");
+				System.out.println("                          $"+gamesetting.returnPrize());
+				System.out.println("\n        Or you can choose to continue and earn more!\n");
+				System.out.println("     But if you get a question wrong, you lose it all!\n");
+				System.out.println(" ==========================================================");
+				System.out.print(" Enter C to Continue or X to Walkaway:");
 				
 				walkawaychoice = sc.nextLine();
 				
 				switch(walkawaychoice) {
 					case "C":
 					case "c":
-						System.out.println("You chose to continue! Moving to next round!");
+						System.out.println("\n\nYou chose to continue! Moving to next round!");
 						break;
 					case "X":
 					case "x":
-						System.out.println("**********************************************");
+						System.out.println("\n\n**********************************************");
 				        System.out.println("*                                            *");
 				        System.out.println("*          You chose to walkaway!            *");
 				        System.out.println("*                                            *");
 				        System.out.println("**********************************************");
 						System.out.println("\n\nYou get to keep your prize of $"+gamesetting.returnPrize()+"\n\n");
-						System.out.println("Returning to the Main Menu");
-						reset();
+						System.out.println("Returning to the Main Menu...\n");
 						reset();
 						break;
 					default:
@@ -133,7 +138,7 @@ public class GameLauncher {
 				// Check if we can run life line
 				if(gamesetting.canRunLifeline()) {
 					// Check if life lines are still remaining
-					if(gamesetting.getUsedLifeLines().length == 3) {
+					if(GameSetting.getUsedLifeLinesCount() == 3) {
 						System.out.println("That choice is invalid. You have no more lifelines. Please select only A, B, C or D");
 						questionAnswer = "";
 					} else {
@@ -152,7 +157,7 @@ public class GameLauncher {
 	private String getPlayerChoice(Scanner sc) {
 		System.out.println("\n\n");
 		if(gamesetting.canRunLifeline()) {
-			System.out.println("Press (L) to Use lifeline ("+(3-gamesetting.getUsedLifeLines().length)+"/3) Remaining");
+			System.out.println("Press (L) to Use lifeline ("+(3-GameSetting.getUsedLifeLinesCount())+"/3) Remaining");
 		}
 		System.out.println("Please enter the letter of your choice (A, B, C, D):");
 		String choice = sc.nextLine();
@@ -182,6 +187,7 @@ public class GameLauncher {
 		questionAnswer = "";
 		gamesetting.resetGame();
 		quesDist.reset();
+		GameSetting.resetLifelines();
 	}
 	
 }
