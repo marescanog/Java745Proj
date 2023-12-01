@@ -30,15 +30,21 @@ public class Lifeline {
 		
 		if (option.equals("a") || option.equals("A")) {
 		    // lifeline 50/50
-		    lifeline5050.runLifeline();
+			if(!checkIsLifeLineInArrayList (usedLifelines, LIFELINE_DEF[0])) {
+				lifeline5050.runLifeline();
+			}
 		    GameSetting.addLifeline(LIFELINE_DEF[0]);
 		} else if (option.equals("b") || option.equals("B")) {
 		    // ask audience
-		    lifelineAudience.runLifeline();
+			if(!checkIsLifeLineInArrayList (usedLifelines, LIFELINE_DEF[1])) {
+				lifelineAudience.runLifeline();
+			}
 		    GameSetting.addLifeline(LIFELINE_DEF[1]);
 		} else if (option.equals("c") || option.equals("C")) {
 		    // phone a friend
-		    lifelineFriend.runLifeline();
+			if(!checkIsLifeLineInArrayList (usedLifelines, LIFELINE_DEF[2])) {
+				lifelineFriend.runLifeline();
+			}
 		    GameSetting.addLifeline(LIFELINE_DEF[2]);
 		} else {
 		    System.out.println("Invalid choice. Please enter a valid choice from letter A-C: ");
