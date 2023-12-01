@@ -7,8 +7,6 @@ public class GameLauncher {
 	private QuestionDistributor quesDist = new QuestionDistributor();
 	private GameSetting gamesetting = new GameSetting();
 	private Lifeline lifeline = new Lifeline();
-	
-	private Question currentQuestion = null;
 	String questionAnswer = "";
 	
 	GameLauncher(){}
@@ -22,10 +20,9 @@ public class GameLauncher {
 			System.out.println("\n---GAME INFO---");	
 			
 			// This ensures that we still have 
-			currentQuestion = quesDist.distributeQuestion(gamesetting.getQuestionCount() , gamesetting.getDifficulty());
-			
+			GameSetting.setCurrentQuestion(quesDist.distributeQuestion(gamesetting.getQuestionCount() , GameSetting.getDifficulty()));			
 			//{
-			if(currentQuestion == null) {
+			if(GameSetting.getCurrentQuestion() == null) {
 				//done with the game
 				System.out.println("**********************************************");
 		        System.out.println("*                                            *");
@@ -49,7 +46,7 @@ public class GameLauncher {
 				
 				// Once we have a valid choice, we validate the user input to check
 				// if choice was the correct answer
-				checkPlayerAnswer(currentQuestion, questionAnswer);
+				checkPlayerAnswer(GameSetting.getCurrentQuestion(), questionAnswer);
 				
 				if(gamesetting.getQuestionCorrect() // guard to make sure this function only runs if player question correct
 				&& ((GameSetting.getDifficulty()==0 && gamesetting.getQuestionCount() <= 9)
@@ -131,7 +128,7 @@ public class GameLauncher {
 	private void getValidChoiceLoop(Scanner sc) {
 		do {
 			//printing question with choices
-			System.out.println(currentQuestion.getString());
+			System.out.println(GameSetting.getCurrentQuestion() == null ? "No Question Retreived" : (GameSetting.getCurrentQuestion()).getString());
 			questionAnswer = getPlayerChoice(sc);
 			// Check if input is for life line
 			if(questionAnswer.equals("L") || questionAnswer.equals("l")) {
@@ -183,7 +180,7 @@ public class GameLauncher {
 	}
 	
 	private void reset() {
-		currentQuestion = null;
+		GameSetting.setCurrentQuestion(null);
 		questionAnswer = "";
 		gamesetting.resetGame();
 		quesDist.reset();
