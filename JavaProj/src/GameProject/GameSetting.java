@@ -54,7 +54,12 @@ public class GameSetting {
     }
     
     public void updateRound() {
-    	this.round = (int)Math.ceil((double) question / 3);
+    	if(difficulty == 0) {
+    		this.round = (int)Math.ceil((double) question / 3);
+    	} else {
+    		this.round = (int)Math.ceil((double) question / 5);
+    	}
+    	
     }
     
     public boolean getQuestionCorrect() {
@@ -122,7 +127,7 @@ public class GameSetting {
     }
     
     public Boolean canRunLifeline() {
-        return (difficulty == 0 ) || (difficulty == 1 && ((round == 2)|| (round == 3)));
+        return (difficulty == 0 ) || (difficulty == 1 && round > 1);
     }
     
 }
