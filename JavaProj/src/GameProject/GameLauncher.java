@@ -157,7 +157,7 @@ public class GameLauncher {
 	private String getPlayerChoice(Scanner sc) {
 		System.out.println("\n\n");
 		if(gamesetting.canRunLifeline()) {
-			System.out.println("Press (L) to Use lifeline ("+(3-GameSetting.getUsedLifeLinesCount())+"/3) Remaining");
+			System.out.println((3-GameSetting.getUsedLifeLinesCount() == 0 ? "Cannot Use Lifelines Anymore " : "Press (L) to Use lifeline ")+"("+(3-GameSetting.getUsedLifeLinesCount())+"/3) Remaining");
 		}
 		System.out.println("Please enter the letter of your choice (A, B, C, D):");
 		String choice = sc.nextLine();
