@@ -38,21 +38,22 @@ public class LifelineAskAudience extends Lifeline {
     	while(maxpoll > 0 && pollCount < 4) {
     		if(pollCount == 3) {
     			randPollValues.add(maxpoll);
+    			maxpoll = 0;
     		} else {
     			int randPoll;
     			switch(pollCount) {
     				case 0:
-    					randPoll = (int) (Math.random() * 45) + 1;
+    					randPoll = ensureNoTwoRandomPollsAreTheSame((int) (Math.random() * 45) + 1);
     					randPollValues.add(randPoll);
     					maxpoll -= randPoll;
     					break;
     				case 1:
-    					randPoll =  (int) (Math.random() * 35);
+    					randPoll = ensureNoTwoRandomPollsAreTheSame((int) (Math.random() * 35) + 1);
     					randPollValues.add(randPoll);
     					maxpoll -= randPoll;
     					break;
     				case 2:
-    					randPoll = (int) (Math.random() * 15);
+    					randPoll = ensureNoTwoRandomPollsAreTheSame((int) (Math.random() * 15) + 1);
     					randPollValues.add(randPoll);
     					maxpoll -= randPoll;
     					break;
@@ -65,6 +66,18 @@ public class LifelineAskAudience extends Lifeline {
     	secondmaxval = randPollValues.get(randPollValues.size()-2);
     }
     
+    private int ensureNoTwoRandomPollsAreTheSame(int randPoll) {
+		while(randPollValues.contains(randPoll)) {
+			if(randPoll == 100) {
+				randPoll--;
+			} else if (randPoll >= 0) {
+				randPoll++;
+			} else {
+				randPoll = (int) (Math.random() * 45) + 1;
+			}
+		}
+		return randPoll;
+    }
     private void assignCorrectPollValues() {
     	// assign the highest poll value to the correct answer
     	// random values to rest
