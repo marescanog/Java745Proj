@@ -51,7 +51,10 @@ public class GameLauncher {
 				// if choice was the correct answer
 				checkPlayerAnswer(currentQuestion, questionAnswer);
 				
-				if(gamesetting.getQuestionCorrect()) { // guard to make sure this function only runs if player question correct
+				if(gamesetting.getQuestionCorrect() // guard to make sure this function only runs if player question correct
+				&& ((GameSetting.getDifficulty()==0 && gamesetting.getQuestionCount() <= 9)
+				|| (GameSetting.getDifficulty()==1 && gamesetting.getQuestionCount() <= 15))
+				) { 
 					// Check if end of round and ask player if they would like to walk away
 					// After 3 questions - Easy, After 5 questions - hard,
 					givePlayerOptionToWalkaway(sc);
