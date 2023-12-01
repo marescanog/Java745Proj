@@ -7,6 +7,7 @@ public class GameSetting {
 	private String screen=""; //[Menu, Instructions, Game]
     private String playerName="";
     private static int difficulty = 0; //0 for easy 1 for hard
+    private static Question currentQuestion = null;
     private int question = 1;
     private int round = 1;
     private boolean questionCorrect = false;
@@ -16,6 +17,14 @@ public class GameSetting {
     private int prizeMoney = 0;
     //gamesetting.setPrizeMoney(prizeValuessEasy[gamesetting.getQuestionCount()-1]);
     
+    public static void setCurrentQuestion(Question question) {
+        currentQuestion = question;
+        
+    }
+    
+    public static Question getCurrentQuestion() {
+        return currentQuestion;
+    }
     
     public String getCurrentScreen() {
         return screen;
