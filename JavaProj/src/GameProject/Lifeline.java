@@ -25,7 +25,7 @@ public class Lifeline {
 		System.out.println("A or a - 50/50 "+(checkIsLifeLineInArrayList(usedLifelines, LIFELINE_DEF[0]) ? "(Used)" : "--> This lifeline allows the game to eliminate two incorrect answers")); 
 		System.out.println("B or b - Ask the Audience "+(checkIsLifeLineInArrayList(usedLifelines, LIFELINE_DEF[1]) ? "(Used)" : "--> This lifeline allows the player to “ask the audience”for the correct answer. A poll will be released on what audience thinks is correct.")); // 
 		System.out.println("C or c - Phone a friend "+(checkIsLifeLineInArrayList(usedLifelines, LIFELINE_DEF[2]) ? "(Used)" : "--> This lifeline allows the player to “phone a friend”. This friend will help give a hint on the correct answer."	)); 	
-		System.out.print("\nYour selection:");
+		System.out.print("\nYour selection: ");
 		String option = s.nextLine();
 		
 		if (option.equals("a") || option.equals("A")) {
