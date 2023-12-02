@@ -32,11 +32,11 @@ public class Lifeline50_50 extends Lifeline {
         }
 
         // Display the updated question with the eliminated choices
-        System.out.println("Two incorrect choices have been eliminated:");
-        for (int i = 0; i < choices.length; i++) {
-            if (!choices[i].isEmpty()) {
-                System.out.println(Question.letterChoices[i] + ".) " + choices[i]);
-            }
-        }
+        System.out.println("Two incorrect choices have been eliminated!");
+//        for (int i = 0; i < choices.length; i++) {
+//            if (!choices[i].isEmpty()) {
+//                System.out.println(Question.letterChoices[i] + ".) " + choices[i]);
+//            }
+//        }
     }
 }
