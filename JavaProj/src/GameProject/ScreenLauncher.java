@@ -20,8 +20,8 @@ public class ScreenLauncher {
 			System.out.println("Hello " + gamesetting.getPlayerName() + ", Welcome to the game!\n");
 		}
 				
-		// Enter a difficulty choice
-		gamesetting.setDifficulty(difficultyLoopSelection(sc));
+		// Enter a difficulty choice - This has to be static Capital G
+		GameSetting.setDifficulty(difficultyLoopSelection(sc));
 		
 		gameLauncher.LaunchGameLoop(sc);
 	}
