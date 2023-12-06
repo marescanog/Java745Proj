@@ -41,11 +41,17 @@ public class GameLauncher {
 				//this will get the array for difficulty easy prize values and the use questionCount as index to access and progress
 				System.out.println("Question Number "+ gamesetting.getQuestionCount() + " with a prize amount of $" + gamesetting.getPrizeValues(gamesetting.getDifficulty())[gamesetting.getQuestionCount()-1]+ "\n");				
 				
-				// Loops until we get a valid choice from player
-				getValidChoiceLoop(sc);
-				
-				// Once we have a valid choice, we validate the user input to check
-				// if choice was the correct answer
+				// Loops until the player decides on a final answer
+				do {
+					
+					// Loops until we get a valid choice from player
+					getValidChoiceLoop(sc);
+					
+				} while (askPlayerIfThisIsHisFinalAnswer(sc));
+
+				// Once we have a valid choice & player confirms final answer 
+				// we validate the user input to check				
+				// Check if choice was the correct answer
 				checkPlayerAnswer(GameSetting.getCurrentQuestion(), questionAnswer);
 				
 				if(gamesetting.getQuestionCorrect() // guard to make sure this function only runs if player question correct
@@ -59,6 +65,41 @@ public class GameLauncher {
 
 				
 			}//if currentQustion!= null			
+		}
+	}
+	
+	private boolean askPlayerIfThisIsHisFinalAnswer(Scanner sc) {
+		boolean returnValue = false;
+		if(questionAnswer == "") {
+			return true;
+		} else {
+			System.out.println("\nYou selected: " + questionAnswer);
+			System.out.println("\nIs this your final answer? (Y/N)");
+			
+			String areYouSure = "";
+			
+			// Loops until the player
+			while(areYouSure.isEmpty() || areYouSure.isBlank()) {
+				
+				areYouSure = sc.nextLine();
+				
+				switch(areYouSure) {
+				case "Y":
+				case "y":
+					returnValue = false;
+					break;
+				case "N":
+				case "n":
+					returnValue = true;
+					System.out.println("\nChoose a different answer.");
+					break;
+				default:
+					System.out.println("\nThat choice is invalid. Please choose Y (Yes) or N (No) only");
+					areYouSure = "";
+				}
+			}
+			
+			return returnValue;
 		}
 	}
 	
@@ -122,6 +163,7 @@ public class GameLauncher {
 			System.out.println("\n\nCorrect Answer! Prize is currently: $" + gamesetting.returnPrize() + "\n");
 			gamesetting.addQuestionCount(); //increment question count
 			gamesetting.updateRound();
+			questionAnswer = "";
 		}		
 	}
 	
