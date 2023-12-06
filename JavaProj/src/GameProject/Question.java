@@ -2,18 +2,17 @@ package GameProject;
 
 public class Question {
 	
-	public static char[] letterChoices = {'A','B','C','D'};
+	public static final char[] letterChoices = {'A','B','C','D'};
 	private static int questionID = 1; 
 	
 	private int ID;
 	private String questionLine;
-	private String hint;
 	private String[] choices = new String[4];
 	private int correctAnsIndex;
 	private int difficultyLevel;
 	
 	public Question(String questionLine, String choice1, String choice2, String choice3, String choice4,
-	int correctAnsIndex, int difficultyLevel, String hint) {
+	int correctAnsIndex, int difficultyLevel) {
 		this.questionLine = questionLine;
 		choices[0] = choice1;
 		choices[1] = choice2;
@@ -22,15 +21,10 @@ public class Question {
 		this.correctAnsIndex = correctAnsIndex;
 		this.difficultyLevel = difficultyLevel;
 		ID = questionID++;
-		this.hint = hint;
 	}
 	
 	public int getID() {
 		return ID;
-	}
-	
-	public String getHint() {
-		return hint;
 	}
 	
 	public String getQuestionLine() {
