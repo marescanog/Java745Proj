@@ -113,6 +113,8 @@ public class GameSetting {
     	this.question = 1;
     	this.questionCorrect = false;
     	this.prizeMoney = 0;
+    	this.round = 1;
+    	currentQuestion = null;
     }
     
 //    public void resetQuestionCount() {
