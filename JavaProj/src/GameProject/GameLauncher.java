@@ -54,11 +54,7 @@ public class GameLauncher {
 				// Check if choice was the correct answer
 				checkPlayerAnswer(GameSetting.getCurrentQuestion(), questionAnswer);
 				if (gamesetting.getQuestionCorrect()) {
-
-					for (int i = 0; i < GameSetting.lifelines.length; i++) {
-						GameSetting.lifelines[i].setActive(false);
-					}
-				
+					resetLifeLines();				
 				}
 				
 				//reset isActive;
@@ -75,6 +71,12 @@ public class GameLauncher {
 
 				
 			}//if currentQustion!= null			
+		}
+	}
+	
+	private void resetLifeLines() {
+		for (int i = 0; i < GameSetting.lifelines.length; i++) {
+			GameSetting.lifelines[i].setActive(false);
 		}
 	}
 	
@@ -186,6 +188,7 @@ public class GameLauncher {
 				System.out.println("No Questions Retrieved");
 			}else {
 				for (int i = 0 ; i < GameSetting.lifelines.length; i++) {
+//					System.out.println(Lifeline.LIFELINE_DEF[i]+" is active: "+GameSetting.lifelines[i].getIsActive());
 					if (GameSetting.lifelines[i].getIsActive() == true) {
 						
 //						System.out.println("LIFELINE ISACTIVE: " + GameSetting.lifelines[i].getIsActive() + "\n");
@@ -258,6 +261,7 @@ public class GameLauncher {
 		questionAnswer = "";
 		gamesetting.resetGame();
 		quesDist.reset();
+		resetLifeLines();
 	}
 	
 }
