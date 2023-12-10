@@ -175,7 +175,6 @@ public class GameLauncher {
 			gamesetting.updateRound();
 			questionAnswer = "";
 		
-			System.out.println("Check player answser is called \n");
 		}		
 	}
 	
