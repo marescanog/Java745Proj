@@ -132,4 +132,9 @@ public class LifelineAskAudience extends Lifeline {
     	}
     	
     }
-}
+    
+    @Override
+    public void reprintResult() {
+    	
+    }
+ }

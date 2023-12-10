@@ -67,15 +67,20 @@ public class Question {
 
 	public String getString() {
 		String returnString = questionLine+"\n";
-		for(int x = 0; x < choices.length; x++) {
-			returnString += Question.letterChoices[x]+".) "+choices[x]+"\n";
-		}
-		return returnString;
+		
+			for(int x = 0; x < choices.length; x++) {
+				returnString += Question.letterChoices[x]+".) "+choices[x]+"\n";
+			}
+			return returnString;
+		
+		
 	}
+
 	
 	// For life line 50/50
 	public String toString(int choiceA, int choiceB) {
-		String returnString = questionLine;
+		String returnString = questionLine+"\n";
+		
 		for(int x = 0; x < choices.length; x++) {
 			if(x == choiceA || x == choiceB) {
 				returnString += Question.letterChoices[x]+".) "+choices[x]+"\n";

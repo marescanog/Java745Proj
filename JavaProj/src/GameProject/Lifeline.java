@@ -5,14 +5,12 @@ import java.util.Scanner;
 public class Lifeline {
 	
 	public static final String[] LIFELINE_DEF = {"50/50","Ask Audience","Call Friend"};
+    private boolean isActive = false;
 	
 	Lifeline(){};
 	
     public void runLifeline() {
     	
-    	Lifeline50_50 lifeline5050 = new Lifeline50_50();
-        LifelineAskAudience lifelineAudience = new LifelineAskAudience();
-        LifelinePhoneFriend lifelineFriend = new LifelinePhoneFriend();
         
     	Scanner s = new Scanner(System.in);
 		System.out.println("\nSelect the type of Lifeline (you can only use each once!):");
@@ -31,19 +29,24 @@ public class Lifeline {
 		if (option.equals("a") || option.equals("A")) {
 		    // lifeline 50/50
 			if(!checkIsLifeLineInArrayList (usedLifelines, LIFELINE_DEF[0])) {
-				lifeline5050.runLifeline();
+				GameSetting.lifelines[0].runLifeline();
+				GameSetting.lifelines[0].setActive(true);
+//				GameSetting.lifelines[1].setActive(false);
+//				GameSetting.lifelines[2].setActive(false);
 			}
 		    GameSetting.addLifeline(LIFELINE_DEF[0]);
 		} else if (option.equals("b") || option.equals("B")) {
 		    // ask audience
 			if(!checkIsLifeLineInArrayList (usedLifelines, LIFELINE_DEF[1])) {
-				lifelineAudience.runLifeline();
+				GameSetting.lifelines[1].runLifeline();
+				GameSetting.lifelines[1].setActive(true);
 			}
 		    GameSetting.addLifeline(LIFELINE_DEF[1]);
 		} else if (option.equals("c") || option.equals("C")) {
 		    // phone a friend
 			if(!checkIsLifeLineInArrayList (usedLifelines, LIFELINE_DEF[2])) {
-				lifelineFriend.runLifeline();
+				GameSetting.lifelines[2].runLifeline();
+				GameSetting.lifelines[2].setActive(true);
 			}
 		    GameSetting.addLifeline(LIFELINE_DEF[2]);
 		} else {
@@ -71,6 +74,18 @@ public class Lifeline {
     		}
     	}
     	return retval;
+    }
+    
+    public void setActive(boolean status) {
+    	isActive = status;
+    }
+    
+    public boolean getIsActive() {
+    	return isActive;
+    }
+    
+    public void reprintResult() {
+    	
     }
     
 }
