@@ -53,9 +53,77 @@ public class ScreenLauncher {
 	}
 	
 	public void InstructionsLoop(Scanner sc) {
-		System.out.println("\n\nInstructionsLoop\n\n");
+	
+		
+		String insChoice = "";
+		
+		while(insChoice.isBlank() || insChoice.isEmpty()) {
+			System.out.println("\nHow to play who wants to be a millionaire:");
+			System.out.println("Select an option for more details:");
+			System.out.println("A.) Easy Mode");
+			System.out.println("B.) Hard Mode");
+			System.out.println("C.) Go back to the Main Menu");
+			System.out.print("Your option: ");
+			
+			insChoice = sc.nextLine();
+			
+			System.out.println("");
+			
+			switch(insChoice) {
+				case "A":
+				case "a":
+					System.out.println("===========================================================");
+					System.out.println("=                       Easy Mode                         =");
+					System.out.println("===========================================================");
+					System.out.println("1.) Easy Mode has a total of 9 questions and 3 rounds.");
+					System.out.println("2.) There are 3 trivia questions each round.");
+					System.out.println("3.) You will be presented with 4 choices to each question.");
+					System.out.println("4.) Select the letter to the choice which you think is the correct answer.");
+					System.out.println("5.) If correct, you will be entitled to a prize value based on the question.");
+					System.out.println("6.) If incorrect, you will lose whatever prize value you are entitled to.");
+					System.out.println("7.) At the end of each round, you can choose to walk away and keep your entitled prize value.");
+					System.out.println("8.) However if you answer all 9 questions you will win the game and a prize of 1,000,000!");
+					System.out.println("9.) You can use 3 different lifelines to help you but you can only use each once!");
+					pressEnterToContinue(sc);
+					insChoice = "";
+					break;
+				case "B":
+				case "b":
+					System.out.println("===========================================================");
+					System.out.println("=                       Hard Mode                         =");
+					System.out.println("===========================================================");
+					System.out.println("1.) Hard Mode has a total of 15 questions and 3 rounds.");
+					System.out.println("2.) There are 5 trivia questions each round.");
+					System.out.println("3.) You will be presented with 4 choices to each question.");
+					System.out.println("4.) Select the letter to the choice which you think is the correct answer.");
+					System.out.println("5.) If correct, you will be entitled to a prize value based on the question.");
+					System.out.println("6.) If incorrect, you will lose whatever prize value you are entitled to.");
+					System.out.println("7.) At the end of each round, you can choose to walk away and keep your entitled prize value.");
+					System.out.println("8.) However if you answer all 9 questions you will win the game and a prize of 1,000,000!");
+					System.out.println("9.) Starting at Round 2 you can use 3 different lifelines to help you but you can only use each once!");
+					pressEnterToContinue(sc);
+					insChoice = "";
+					break;
+				case "C":
+				case "c":
+					System.out.println("\nGoing back to the main menu...\n\n");
+					break;
+				default:
+					System.out.println("\nThat is not a valid selection. Please choose A, B or C.\n");
+					insChoice = "";
+			}
+		}
+		
+
+		
 	}
 	
+	 private void pressEnterToContinue(Scanner sc)
+	 { 
+	        System.out.println("\n\nPress Enter key to continue...");
+	        sc.nextLine();  
+	 }
+	 
 	public void PrintExitScreen() {
 		System.out.println("\n\nGood Bye! Thank you for playing!");
 	}
