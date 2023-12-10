@@ -78,7 +78,7 @@ public class Question {
 		String returnString = questionLine;
 		for(int x = 0; x < choices.length; x++) {
 			if(x == choiceA || x == choiceB) {
-				returnString += choices[x];
+				returnString += Question.letterChoices[x]+".) "+choices[x]+"\n";
 			}
 		}
 		return returnString;
