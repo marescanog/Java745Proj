@@ -19,7 +19,7 @@ public class GameLauncher {
 			
 			System.out.println("\n---GAME INFO---");	
 			
-			// This ensures that we still have 
+			// set current Question with questoinDistributor 
 			GameSetting.setCurrentQuestion(quesDist.distributeQuestion(gamesetting.getQuestionCount() , GameSetting.getDifficulty()));			
 			//{
 			if(GameSetting.getCurrentQuestion() == null) {
@@ -31,7 +31,7 @@ public class GameLauncher {
 		        System.out.println("*                                            *");
 		        System.out.println("**********************************************");
 				System.out.println("Returning to the Main Menu");
-				reset();
+				fullReset();
 			} else {
 				// print round
 				System.out.println("The current round is: " + gamesetting.getCurrentRound()); // Game settings class
@@ -53,6 +53,16 @@ public class GameLauncher {
 				// we validate the user input to check				
 				// Check if choice was the correct answer
 				checkPlayerAnswer(GameSetting.getCurrentQuestion(), questionAnswer);
+				if (gamesetting.getQuestionCorrect()) {
+
+					for (int i = 0; i < GameSetting.lifelines.length; i++) {
+						GameSetting.lifelines[i].setActive(false);
+					}
+				
+				}
+				
+				//reset isActive;
+				
 				
 				if(gamesetting.getQuestionCorrect() // guard to make sure this function only runs if player question correct
 				&& ((GameSetting.getDifficulty()==0 && gamesetting.getQuestionCount() <= 9)
@@ -137,7 +147,7 @@ public class GameLauncher {
 				        System.out.println("**********************************************");
 						System.out.println("\n\nYou get to keep your prize of $"+gamesetting.returnPrize()+"\n\n");
 						System.out.println("Returning to the Main Menu...\n");
-						reset();
+						fullReset();
 						break;
 					default:
 						walkawaychoice = "";
@@ -153,7 +163,7 @@ public class GameLauncher {
 		if(!gamesetting.getQuestionCorrect()) {
 			//incorrect
 			System.out.println("\n\nIncorrect Answer! You have Lost! Returning to the Main Menu\n\n");
-			reset();
+			fullReset();
 			
 		// Add guard to make sure we wont run these statements if out-of-question bounds (9/easy, 15/hard)
 		} else if (GameSetting.getDifficulty() == 0 && gamesetting.getQuestionCount() <= 9
@@ -164,13 +174,37 @@ public class GameLauncher {
 			gamesetting.addQuestionCount(); //increment question count
 			gamesetting.updateRound();
 			questionAnswer = "";
+		
+			System.out.println("Check player answser is called \n");
 		}		
 	}
 	
 	private void getValidChoiceLoop(Scanner sc) {
 		do {
 			//printing question with choices
-			System.out.println(GameSetting.getCurrentQuestion() == null ? "No Question Retreived" : (GameSetting.getCurrentQuestion()).getString());
+			boolean printAll = true;		
+			if (GameSetting.getCurrentQuestion() == null) {
+				System.out.println("No Questions Retrieved");
+			}else {
+				for (int i = 0 ; i < GameSetting.lifelines.length; i++) {
+					if (GameSetting.lifelines[i].getIsActive() == true) {
+						
+//						System.out.println("LIFELINE ISACTIVE: " + GameSetting.lifelines[i].getIsActive() + "\n");
+						
+						if (i == 0) {
+							printAll = false;
+						}
+						//reprint the lifeline tip?
+						GameSetting.lifelines[i].reprintResult();
+					}
+				}
+				
+				if (printAll) {
+					System.out.println((GameSetting.getCurrentQuestion()).getString());
+				}
+			}
+			
+//			System.out.println(GameSetting.getCurrentQuestion() == null ? "No Question Retreived" : (GameSetting.getCurrentQuestion()).getString());
 			questionAnswer = getPlayerChoice(sc);
 			// Check if input is for life line
 			if(questionAnswer.equals("L") || questionAnswer.equals("l")) {
@@ -221,12 +255,10 @@ public class GameLauncher {
 		return choice;
 	}
 	
-	private void reset() {
-		GameSetting.setCurrentQuestion(null);
+	private void fullReset() {
 		questionAnswer = "";
 		gamesetting.resetGame();
 		quesDist.reset();
-		GameSetting.resetLifelines();
 	}
 	
 }

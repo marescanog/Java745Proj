@@ -15,11 +15,23 @@ public class GameSetting {
     private int[] prizeValuesHard = {100, 200, 300, 500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 125000, 250000, 500000, 1000000}; //15 values for hard
     private static ArrayList<String> usedLifeLines = new ArrayList<String>(); //store lifelines that has been used, if empty: player never used lifeline
     private int prizeMoney = 0;
+//    public static Lifeline lifeline5050 = new Lifeline50_50();
+//    public static Lifeline lifelineAudience = new LifelineAskAudience();
+//    public static Lifeline lifelineFriend = new LifelinePhoneFriend();
+    public static Lifeline[] lifelines = {new Lifeline50_50(),new LifelineAskAudience(), new LifelinePhoneFriend()};
+    
     //gamesetting.setPrizeMoney(prizeValuessEasy[gamesetting.getQuestionCount()-1]);
+    
+//    GameSetting() {
+//    	lifelines[0] = lifeline5050;
+//    	lifelines[1] = lifelineAudience;
+//    	lifelines[2] = lifelineFriend;
+//    }
+    
     
     public static void setCurrentQuestion(Question question) {
         currentQuestion = question;
-        
+
     }
     
     public static Question getCurrentQuestion() {
@@ -96,9 +108,10 @@ public class GameSetting {
     	}
     }
     
-    public static void resetLifelines() {
-    	usedLifeLines.clear();
-    }
+//lets conce
+//    public static void resetLifelines() {
+//    	usedLifeLines.clear();
+//    }
     
     public int[] getPrizeValues(int difficulty) {
     	//if difficulty = 1 = hard then return hard prize values
@@ -115,6 +128,7 @@ public class GameSetting {
     	this.prizeMoney = 0;
     	this.round = 1;
     	currentQuestion = null;
+    	usedLifeLines.clear();
     }
     
 //    public void resetQuestionCount() {
