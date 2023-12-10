@@ -47,7 +47,8 @@ public class Lifeline50_50 extends Lifeline {
     
     @Override
     public void reprintResult() {
-    	if (indexToRemove > 0) {
+//    	System.out.println("Index to remove: "+indexToRemove);
+    	if (indexToRemove >= 0) {
     		System.out.print(GameSetting.getCurrentQuestion().toString(indexToRemove, GameSetting.getCurrentQuestion().getCorrectAnsIndex()));
     	}
     	
