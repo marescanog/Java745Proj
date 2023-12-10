@@ -5,27 +5,29 @@ import java.util.Comparator;
 
 public class LifelineAskAudience extends Lifeline {
 	
-	private ArrayList<Integer> randPollValues = new ArrayList<Integer>();
-	LifelineAskAudience(){}
-	
+	private ArrayList<Integer> randPollValues = new ArrayList<Integer>();	
 	int maxval = 0;
 	int secondmaxval = 0; 
+	String pollString = "";
+	
+	LifelineAskAudience(){}
 	
     @Override
     public void runLifeline() {
+    	
+    	pollString = "";
+    	
         System.out.println("Ask the audience for the correct answer.");
         
         generateRandPollValues();
         
-        System.out.println("\n\nThe audience voted:");
         if(headsOrTails() || GameSetting.getDifficulty() == 0) {
-        	 //System.out.println("Audience gives out correct answer");
-        	assignCorrectPollValues();
+          	 //System.out.println("Audience gives out correct answer");
+	      	assignCorrectPollValues();
         } else {
-        	 //System.out.println("Audience gives out incorrect answer");
-        	assignInCorrectPollValues();
+	      	 //System.out.println("Audience gives out incorrect answer");
+	  		assignInCorrectPollValues();
         }
-        System.out.println("\n\n");
     }
     
     public boolean headsOrTails() {
@@ -64,20 +66,26 @@ public class LifelineAskAudience extends Lifeline {
     	randPollValues.sort(Comparator.naturalOrder());
     	maxval = randPollValues.get(randPollValues.size()-1);
     	secondmaxval = randPollValues.get(randPollValues.size()-2);
+    	
+//    	System.out.println("Your random poll values are: ");
+//    	for(int ranEl : randPollValues) {
+//    		System.out.println(ranEl);
+//    	}
+//      	System.out.println("Your max value is: "+maxval);
+//      	System.out.println("Your secondmaxval is: "+secondmaxval);
     }
     
     private int ensureNoTwoRandomPollsAreTheSame(int randPoll) {
 		while(randPollValues.contains(randPoll)) {
 			if(randPoll == 100) {
-				randPoll--;
-			} else if (randPoll >= 0) {
-				randPoll++;
+				randPoll = (int) (Math.random() * 10) + 1;
 			} else {
-				randPoll = (int) (Math.random() * 45) + 1;
+				randPoll++;
 			}
 		}
 		return randPoll;
     }
+    
     private void assignCorrectPollValues() {
     	// assign the highest poll value to the correct answer
     	// random values to rest
@@ -85,16 +93,16 @@ public class LifelineAskAudience extends Lifeline {
     	String[] choices = currentQuestion.getChoices();
     	
     	for(int x = 0; x < choices.length; x++) {
-    		System.out.print(Question.letterChoices[x] + ".) "+ choices[x] + ": ");
+    		pollString = pollString + Question.letterChoices[x] + ".) "+ choices[x] + ": ";
     		if(currentQuestion.getCorrectAnsIndex() == x) {
-    			System.out.println(randPollValues.get(randPollValues.size()-1)+"%");
+    			pollString = pollString + randPollValues.get(randPollValues.size()-1)+"%" + "\n";
     			randPollValues.remove(randPollValues.size()-1);
     		} else {
     			int randIndex = -1;
     			while(randIndex == -1) {
         			randIndex = (int)(Math.random() * randPollValues.size() );
         			if(maxval != randPollValues.get(randIndex)) {
-            			System.out.println(randPollValues.get(randIndex)+"%");
+        				pollString = pollString + randPollValues.get(randIndex)+"%" + "\n";
             			randPollValues.remove(randIndex);
         			} else {
         				randIndex = -1;
@@ -112,16 +120,16 @@ public class LifelineAskAudience extends Lifeline {
     	String[] choices = currentQuestion.getChoices();
     	
     	for(int x = 0; x < choices.length; x++) {
-    		System.out.print(Question.letterChoices[x] + ".) "+ choices[x] + ": ");
+    		pollString = pollString + Question.letterChoices[x] + ".) "+ choices[x] + ": ";
     		if(currentQuestion.getCorrectAnsIndex() == x) {
-    			System.out.println(secondmaxval+"%");
+    			pollString = pollString + secondmaxval+"%" + "\n";
     			randPollValues.remove(Integer.valueOf(secondmaxval));
     		} else {
     			int randIndex = -1;
     			while(randIndex == -1) {
         			randIndex = (int)(Math.random() * randPollValues.size() );
         			if(secondmaxval != randPollValues.get(randIndex)) {
-            			System.out.println(randPollValues.get(randIndex)+"%");
+        				pollString = pollString + randPollValues.get(randIndex)+"%" + "\n";
             			randPollValues.remove(randIndex);
         			} else {
         				randIndex = -1;
@@ -135,6 +143,9 @@ public class LifelineAskAudience extends Lifeline {
     
     @Override
     public void reprintResult() {
-    	
+       System.out.println("\n\nThe audience voted:");
+       System.out.println(pollString);
+       System.out.println("\n");
     }
+    
  }
