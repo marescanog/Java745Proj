@@ -84,7 +84,7 @@ public class GameLauncher {
 			return true;
 		} else {
 			System.out.println("\nYou selected: " + questionAnswer);
-			System.out.println("\nIs this your final answer? (Y/N)");
+			System.out.print("\nIs this your final answer? (Y/N): ");
 			
 			String areYouSure = "";
 			
